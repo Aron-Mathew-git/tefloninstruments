@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>TEFLON INSTRUMENTS PRIVATE LIMITED Calibration | Certification | Maintenance</title>
+  <meta name="description" content="TEFLON INSTRUMENTS PRIVATE LIMITED offers premium calibration, certification, and maintenance services. Traceable standards ensuring precision, quality, and operational excellence.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans for a warm, humanist, modern aesthetic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="main-header" id="header">
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <div class="top-bar-item">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" style="margin-right: 4px; color: var(--teal-accent);">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>1153, Peringattu Rd, Chembumukku, Edappally, Kakkanad, Kochi, Kerala 682021</span>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-bar-item">
+          <span class="status-indicator"></span>
+          <span class="tech-label font-mono">LAB ACTIVE</span>
+        </div>
+        <div class="top-bar-item">
+          <span class="font-mono" style="color: var(--teal-accent); font-weight: 600;">PH:</span>
+          <span><a href="tel:+919718933509" style="color: inherit; text-decoration: none;">+91 97189 33509</a> &nbsp;|&nbsp; <a href="tel:+917012221284" style="color: inherit; text-decoration: none;">+91 7012221284</a></span>
+        </div>
+      </div>
+    </div>
+    
+    <nav class="nav-bar">
+      <div class="nav-brand">
+        <a href="#home" class="logo-link">
+          <span class="logo-main">TEFLON INSTRUMENTS PRIVATE LIMITED</span>
+          <span class="logo-sub">Calibration | Certification | Maintenance</span>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li class="nav-dropdown">
+          <a href="#parameters" class="nav-link dropdown-toggle" id="nav-calibrate-toggle">
+            What We Calibrate
+            <svg class="dropdown-chevron" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <ul class="dropdown-menu" id="nav-calibrate-dropdown">
+            <li><a href="#parameters" data-discipline="electrical" class="dropdown-item">Electrical</a></li>
+            <li><a href="#parameters" data-discipline="temperature" class="dropdown-item">Temperature</a></li>
+            <li><a href="#parameters" data-discipline="pressure" class="dropdown-item">Pressure</a></li>
+            <li><a href="#parameters" data-discipline="humidity" class="dropdown-item">Humidity</a></li>
+            <li><a href="#parameters" data-discipline="force-torque" class="dropdown-item">Force &amp; Torque</a></li>
+            <li><a href="#parameters" data-discipline="dimensional" class="dropdown-item">Dimensional</a></li>
+            <li><a href="#parameters" data-discipline="mass" class="dropdown-item">Mass</a></li>
+            <li><a href="#parameters" data-discipline="flow" class="dropdown-item">Flow</a></li>
+            <li><a href="#parameters" data-discipline="speed-time" class="dropdown-item">Speed &amp; Time</a></li>
+            <li><a href="#parameters" data-discipline="sound-vibration" class="dropdown-item">Sound &amp; Vibration</a></li>
+            <li><a href="#parameters" data-discipline="light" class="dropdown-item">Light</a></li>
+            <li><a href="#parameters" data-discipline="laboratory" class="dropdown-item">Laboratory</a></li>
+            <li><a href="#parameters" data-discipline="process-instruments" class="dropdown-item">Process Instruments</a></li>
+            <li><a href="#parameters" data-discipline="mechanical-testing" class="dropdown-item">Mechanical Testing</a></li>
+          </ul>
+        </li>
+        <li><a href="#industries" class="nav-link">Industries</a></li>
+        <li><a href="#insights" class="nav-link">Resources</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="btn btn-primary btn-rect open-quote-btn" id="nav-quote-btn">GET A QUOTE</button>
+      </div>
+      
+      <!-- MOBILE MENU TOGGLE -->
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-menu-drawer" id="mobile-menu-drawer">
+    <div class="mobile-drawer-header">
+      <div class="mobile-drawer-logo">
+        <span class="logo-main">TEFLON INSTRUMENTS</span>
+        <span class="logo-sub">Calibration | Certification | Maintenance</span>
+      </div>
+      <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close Menu">
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#home" class="mobile-nav-link">Home</a></li>
+      <li><a href="#about" class="mobile-nav-link">About Us</a></li>
+      <li class="mobile-nav-dropdown">
+        <div class="mobile-dropdown-header" id="mobile-dropdown-header">
+          <a href="#parameters" class="mobile-nav-link">What We Calibrate</a>
+          <button class="mobile-dropdown-toggle-btn" id="mobile-dropdown-toggle-btn" aria-label="Expand Submenu">
+            <svg class="mobile-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+        </div>
+        <ul class="mobile-dropdown-sub" id="mobile-dropdown-sub">
+          <li><a href="#parameters" data-discipline="electrical" class="mobile-sub-link">Electrical</a></li>
+          <li><a href="#parameters" data-discipline="temperature" class="mobile-sub-link">Temperature</a></li>
+          <li><a href="#parameters" data-discipline="pressure" class="mobile-sub-link">Pressure</a></li>
+          <li><a href="#parameters" data-discipline="humidity" class="mobile-sub-link">Humidity</a></li>
+          <li><a href="#parameters" data-discipline="force-torque" class="mobile-sub-link">Force &amp; Torque</a></li>
+          <li><a href="#parameters" data-discipline="dimensional" class="mobile-sub-link">Dimensional</a></li>
+          <li><a href="#parameters" data-discipline="mass" class="mobile-sub-link">Mass</a></li>
+          <li><a href="#parameters" data-discipline="flow" class="mobile-sub-link">Flow</a></li>
+          <li><a href="#parameters" data-discipline="speed-time" class="mobile-sub-link">Speed &amp; Time</a></li>
+          <li><a href="#parameters" data-discipline="sound-vibration" class="mobile-sub-link">Sound &amp; Vibration</a></li>
+          <li><a href="#parameters" data-discipline="light" class="mobile-sub-link">Light</a></li>
+          <li><a href="#parameters" data-discipline="laboratory" class="mobile-sub-link">Laboratory</a></li>
+          <li><a href="#parameters" data-discipline="process-instruments" class="mobile-sub-link">Process Instruments</a></li>
+          <li><a href="#parameters" data-discipline="mechanical-testing" class="mobile-sub-link">Mechanical Testing</a></li>
+        </ul>
+      </li>
+      <li><a href="#industries" class="mobile-nav-link">Industries</a></li>
+      <li><a href="#insights" class="mobile-nav-link">Resources</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+    <div class="mobile-drawer-footer">
+      <button class="btn btn-primary btn-rect open-quote-btn btn-block">REQUEST A QUOTE</button>
+      <div class="mobile-drawer-contact">
+        <a href="tel:+919718933509" class="drawer-contact-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span>+91 97189 33509</span>
+        </a>
+        <a href="https://wa.me/919718933509" target="_blank" class="btn btn-secondary btn-whatsapp btn-rect btn-block" style="margin-top: 12px; font-size: 0.85rem; justify-content: center;">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right: 4px;">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 2.019 14.12 1 11.52 1c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.459 3.39 1.331 4.872L1.933 20.39l4.714-1.236zm10.742-5.717c-.296-.147-1.747-.852-2.012-.95-.264-.097-.456-.147-.648.147-.192.294-.744.95-.912 1.146-.169.196-.338.22-.634.072-.296-.147-1.25-.457-2.38-1.457-.88-.778-1.474-1.74-1.646-2.035-.172-.294-.018-.454.13-.601.133-.133.297-.344.446-.516.148-.172.197-.294.296-.49.099-.196.05-.367-.025-.515-.074-.147-.648-1.543-.888-2.13-.233-.564-.47-.488-.648-.497-.168-.008-.36-.009-.551-.009-.192 0-.505.072-.769.36-.264.288-1.01 1.01-1.01 2.46 0 1.45.1.86.326.196.226-.294 1.32-2.01 1.438-2.147.118-.137.228-.2.457-.053.23.147 1.478.75 1.63 1.25.152.5.152.93.076 1.226-.076.297-.456.95-.648 1.146l-.389.39-.026.024z"/>
+          </svg>
+          Chat via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING SIDEBAR (Collapsible B2B Quick Enquiry Form) -->
+  <aside class="sidebar-floating" id="enquiry-sidebar">
+    <button class="sidebar-toggle" id="sidebar-toggle-btn" aria-label="Toggle Enquiry Form">
+      <span class="toggle-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none">
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <polyline points="12 4 4 12 12 20" id="toggle-arrow"></polyline>
+        </svg>
+      </span>
+      <span class="toggle-text">QUICK ENQUIRY</span>
+    </button>
+    <div class="sidebar-content">
+      <div class="sidebar-header">
+        <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Close Enquiry Form">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <h3>Quick Enquiry</h3>
+        <p class="sidebar-subtitle">Direct calibration request pipeline</p>
+      </div>
+      
+      <!-- SUCCESS STATE VIEW -->
+      <div class="sidebar-success-view" id="sidebar-success-view" style="display: none;">
+        <div class="success-icon-wrapper">
+          <svg class="success-check-icon" viewBox="0 0 24 24" width="56" height="56" stroke="var(--teal-accent)" stroke-width="2.5" fill="none">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3 class="success-title">Enquiry Compiled!</h3>
+        <p class="success-desc">We are redirecting you to WhatsApp to send your specifications directly to our calibration desk.</p>
+        
+        <div class="success-progress-container">
+          <div class="success-progress-bar" id="success-progress-bar"></div>
+        </div>
+
+        <a href="#" id="whatsapp-manual-btn" target="_blank" class="btn btn-primary btn-block btn-rect btn-whatsapp" style="margin-top: 24px;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 2.019 14.12 1 11.52 1c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.459 3.39 1.331 4.872L1.933 20.39l4.714-1.236zm10.742-5.717c-.296-.147-1.747-.852-2.012-.95-.264-.097-.456-.147-.648.147-.192.294-.744.95-.912 1.146-.169.196-.338.22-.634.072-.296-.147-1.25-.457-2.38-1.457-.88-.778-1.474-1.74-1.646-2.035-.172-.294-.018-.454.13-.601.133-.133.297-.344.446-.516.148-.172.197-.294.296-.49.099-.196.05-.367-.025-.515-.074-.147-.648-1.543-.888-2.13-.233-.564-.47-.488-.648-.497-.168-.008-.36-.009-.551-.009-.192 0-.505.072-.769.36-.264.288-1.01 1.01-1.01 2.46 0 1.45.1.86.326.196.226-.294 1.32-2.01 1.438-2.147.118-.137.228-.2.457-.053.23.147 1.478.75 1.63 1.25.152.5.152.93.076 1.226-.076.297-.456.95-.648 1.146l-.389.39-.026.024z"/>
+          </svg>
+          SEND VIA WHATSAPP (MANUAL)
+        </a>
+        <button id="success-reset-btn" class="btn btn-secondary btn-block btn-rect" style="margin-top: 12px;">
+          Submit Another Enquiry
+        </button>
+      </div>
+      
+      <form class="sidebar-form" id="quick-enquiry-form">
+        <div class="form-group">
+          <label for="eq-name">Full Name</label>
+          <input type="text" id="eq-name" name="name" required placeholder="e.g. Dr. Rajesh Kumar">
+        </div>
+        <div class="form-group">
+          <label for="eq-company">Company / Institution</label>
+          <input type="text" id="eq-company" name="company" required placeholder="e.g. Acme Pharmaceuticals">
+        </div>
+        <div class="form-group">
+          <label for="eq-email">Corporate Email</label>
+          <input type="email" id="eq-email" name="email" required placeholder="name@company.com">
+        </div>
+        <div class="form-group">
+          <label for="eq-phone">Contact Number</label>
+          <input type="tel" id="eq-phone" name="phone" required placeholder="+91 XXXXX XXXXX">
+        </div>
+        <div class="form-group">
+          <label for="eq-service">Required Service</label>
+          <select id="eq-service" name="service">
+            <option value="electrical">Electrical Calibration</option>
+            <option value="temperature">Temperature Calibration</option>
+            <option value="pressure">Pressure Calibration</option>
+            <option value="dimensional">Dimensional Metrology</option>
+            <option value="torque">Torque & Mass Calibration</option>
+            <option value="onsite">On-Site Calibration</option>
+            <option value="custom">Other / Custom Standards</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Instrument List (Drag & Drop)</label>
+          <div class="drag-drop-area" id="file-drop-zone">
+            <svg class="upload-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="17 8 12 3 7 8"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <p class="drop-text">Drag CSV / Excel list, or click to upload</p>
+            <input type="file" id="file-input" name="instrumentList" accept=".xlsx,.xls,.csv,.pdf,.docx" style="display: none;">
+            <div id="file-selected-name" class="file-name-preview"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="eq-message">Special Technical Requirements</label>
+          <textarea id="eq-message" name="message" rows="3" placeholder="Specify calibrations ranges, required tolerances, or standard compliance certificates needed..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-rect">SUBMIT TECHNICAL SPECIFICATION</button>
+        <p class="privacy-note">We respect your privacy. All uploaded documents are stored in encrypted vaults and are subject to strict NDA regulations.</p>
+      </form>
+      <div class="sidebar-direct-cta">
+        <a href="https://wa.me/919718933509" target="_blank" class="btn btn-secondary btn-whatsapp btn-rect">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 2.019 14.12 1 11.52 1c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.459 3.39 1.331 4.872L1.933 20.39l4.714-1.236zm10.742-5.717c-.296-.147-1.747-.852-2.012-.95-.264-.097-.456-.147-.648.147-.192.294-.744.95-.912 1.146-.169.196-.338.22-.634.072-.296-.147-1.25-.457-2.38-1.457-.88-.778-1.474-1.74-1.646-2.035-.172-.294-.018-.454.13-.601.133-.133.297-.344.446-.516.148-.172.197-.294.296-.49.099-.196.05-.367-.025-.515-.074-.147-.648-1.543-.888-2.13-.233-.564-.47-.488-.648-.497-.168-.008-.36-.009-.551-.009-.192 0-.505.072-.769.36-.264.288-1.01 1.01-1.01 2.46 0 1.45.1.86.326.196.226-.294 1.32-2.01 1.438-2.147.118-.137.228-.2.457-.053.23.147 1.478.75 1.63 1.25.152.5.152.93.076 1.226-.076.297-.456.95-.648 1.146l-.389.39-.026.024z"/>
+          </svg>
+          Chat via WhatsApp
+        </a>
+        <a href="tel:+919718933509" class="btn btn-secondary btn-rect">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          Direct Call Line
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <main class="main-content" id="home">
+    
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="hero-layout">
+        
+        <!-- Left Side: Copy and Stats -->
+        <div class="hero-left">
+          <div class="hero-metadata">
+            <span class="meta-tag">PRECISION CALIBRATION</span>
+            <span class="meta-separator">|</span>
+            <span class="meta-tag">NIST TRACEABLE</span>
+            <span class="meta-separator">|</span>
+            <span class="meta-tag">QUALITY GUARANTEED</span>
+          </div>
+          <h1 class="hero-title">
+            Calibration You Can Trust.<br>
+            <span class="text-highlight">Accuracy You Can Rely On.</span>
+          </h1>
+          <p class="hero-description">
+            Professional calibration services for a wide range of high-precision instruments. We follow traceable standards to national and international metrology bodies ensuring ultimate technical precision, safety compliance, and operational excellence for your B2B manufacturing workflows.
+          </p>
+          <div class="hero-ctas">
+            <button class="btn btn-primary btn-large btn-rect open-quote-btn">REQUEST A TECHNICAL QUOTE</button>
+            <a href="#parameters" class="btn btn-outline btn-large btn-rect" id="hero-explore-btn">EXPLORE SERVICES</a>
+          </div>
+          
+          <!-- Key Points -->
+          <div class="hero-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h4 class="feature-title">Traceable Standards</h4>
+                <p class="feature-desc">All calibrations traceable to national and international laboratories (NPL, NIST).</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h4 class="feature-title">Experienced Engineers</h4>
+                <p class="feature-desc">Domain-expert metrology specialists trained in precision tolerances and compliance.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h4 class="feature-title">Fast Turnaround</h4>
+                <p class="feature-desc">Dedicated logistics and structured workflows ensure average 24-48 hour response times.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="feature-content">
+                <h4 class="feature-title">On-site Calibration</h4>
+                <p class="feature-desc">Mobile metrology workstations equipped to calibrate instruments directly at your facility.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right Side: Clean studio-photo carousel -->
+        <div class="hero-right">
+          <div class="carousel-container">
+            <div class="carousel-track-container">
+              <ul class="carousel-track">
+                <li class="carousel-slide current-slide">
+                  <img src="assets/images/fluke_calibrator.png" alt="Fluke Reference Calibrator on bench" class="carousel-img">
+                  <div class="carousel-caption">
+                    <span class="caption-class">MODEL: TEFLON-FLK5522A</span>
+                    <span class="caption-separator">|</span>
+                    <span class="caption-title">High-Precision Electrical Multimeter Calibrator</span>
+                  </div>
+                </li>
+                <li class="carousel-slide">
+                  <img src="assets/images/dry_block.png" alt="Digital Dry Block Temperature Calibrator" class="carousel-img">
+                  <div class="carousel-caption">
+                    <span class="caption-class">MODEL: TEFLON-DB1200</span>
+                    <span class="caption-separator">|</span>
+                    <span class="caption-title">Digital Dry-Block Temperature Calibrator Well</span>
+                  </div>
+                </li>
+                <li class="carousel-slide">
+                  <img src="assets/images/deadweight_tester.png" alt="Deadweight Pressure Calibrator Tester" class="carousel-img">
+                  <div class="carousel-caption">
+                    <span class="caption-class">MODEL: TEFLON-DWT300</span>
+                    <span class="caption-title">Physical Hydraulic Deadweight Pressure Tester</span>
+                  </div>
+                </li>
+                <li class="carousel-slide">
+                  <img src="assets/images/energy_meter.png" alt="Energy Meter Master" class="carousel-img">
+                  <div class="carousel-caption">
+                    <span class="caption-class">MODEL: TEFLON-EMM400</span>
+                    <span class="caption-title">Energy Meter Master Calibration Standard</span>
+                  </div>
+                </li>
+                <li class="carousel-slide">
+                  <img src="assets/images/flow_meter.png" alt="Flow Meter Master" class="carousel-img">
+                  <div class="carousel-caption">
+                    <span class="caption-class">MODEL: TEFLON-FMM500</span>
+                    <span class="caption-title">Flow Meter Master Calibration System</span>
+                  </div>
+                </li>
+                <li class="carousel-slide">
+                  <img src="assets/images/proving_ring.png" alt="Proving Ring" class="carousel-img">
+                  <div class="carousel-caption">
+                    <span class="caption-class">MODEL: TEFLON-PR600</span>
+                    <span class="caption-title">Industrial Proving Ring Calibration Standard</span>
+                  </div>
+                </li>
+                <li class="carousel-slide">
+                  <img src="assets/images/load_cell.png" alt="Load Cell Master" class="carousel-img">
+                  <div class="carousel-caption">
+                    <span class="caption-class">MODEL: TEFLON-LCM700</span>
+                    <span class="caption-title">Load Cell Master Calibration Standard</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="carousel-nav">
+              <button class="carousel-nav-btn prev-btn" aria-label="Previous image">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <div class="carousel-indicators">
+                <button class="indicator-dot active-dot" data-slide-index="0" aria-label="Slide 1"></button>
+                <button class="indicator-dot" data-slide-index="1" aria-label="Slide 2"></button>
+                <button class="indicator-dot" data-slide-index="2" aria-label="Slide 3"></button>
+                <button class="indicator-dot" data-slide-index="3" aria-label="Slide 4"></button>
+                <button class="indicator-dot" data-slide-index="4" aria-label="Slide 5"></button>
+                <button class="indicator-dot" data-slide-index="5" aria-label="Slide 6"></button>
+                <button class="indicator-dot" data-slide-index="6" aria-label="Slide 7"></button>
+              </div>
+              <button class="carousel-nav-btn next-btn" aria-label="Next image">
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+            
+            <div class="carousel-grid-overlay">
+              <div class="grid-line vertical"></div>
+              <div class="grid-line vertical"></div>
+              <div class="grid-line horizontal"></div>
+              <div class="grid-line horizontal"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WHAT WE CALIBRATE / PARAMETER EXPLORER SECTION -->
+    <section class="section section-parameters" id="parameters">
+      <div class="section-header">
+        <span class="section-tag font-mono">01 // WHAT WE CALIBRATE</span>
+        <h2 class="section-title">What We Calibrate</h2>
+        <p class="section-subtitle">Select a calibration discipline below to browse our supported instruments, test ranges, and reference equipment.</p>
+      </div>
+
+      <!-- NABL 129 Alignment & Compliance Banner -->
+      <div class="scope-explainer-banner">
+        <div class="scope-explainer-header">
+          <span class="scope-explainer-tag">NABL 129 ALIGNED</span>
+          <h3 class="scope-explainer-title">NABL 129 Discipline Alignment & Standards</h3>
+        </div>
+        <p class="scope-explainer-text">
+          Our laboratory calibration operations follow NABL 129 discipline structures (Electro-Technical, Thermal, Mass & Volume, Fluid Flow, and Mechanical) and ISO/IEC 17025 quality principles. All measurements are performed against master reference standards traceable to National Physical Laboratory (NPL India) and NIST. <em>(Official NABL accreditation process is currently in progress / planned).</em>
+        </p>
+        <p class="scope-disclaimer-note">
+          * Detailed measurement uncertainty and Calibration & Measurement Capability (CMC) values are available upon request or in our official scope document.
+        </p>
+      </div>
+
+      <!-- Interactive Parameter Explorer (Rendered via app.js) -->
+      <div id="nabl-parameter-explorer">
+
+        <!-- Live Search Bar -->
+        <div class="explorer-search-wrapper">
+          <div class="explorer-search-input-group">
+            <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="explorer-search-input" placeholder="Search instruments, test ranges, or standards (e.g. Multimeter, Pressure Gauge, 1000V, Fluke)..." autocomplete="off">
+            <button id="explorer-search-clear" aria-label="Clear Search" style="display: none;">&times;</button>
+          </div>
+          <div id="explorer-search-counter" class="search-counter-badge" style="display: none;"></div>
+        </div>
+
+        <!-- Level 1 Breadcrumbs & Discipline Selector -->
+        <div class="explorer-breadcrumb-bar" id="explorer-breadcrumbs">
+          <span class="breadcrumb-item active" id="bc-root">All Calibration Disciplines</span>
+        </div>
+        
+        <div class="discipline-selector-grid" id="discipline-selector">
+          <!-- Populated dynamically from parameters-data.js -->
+        </div>
+
+        <!-- Level 2 Parameter Grid -->
+        <div class="parameter-grid-container" id="parameter-grid">
+          <!-- Populated dynamically from parameters-data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- IN-PAGE PARAMETER QUICK-VIEW MODAL -->
+    <div class="param-modal-overlay" id="param-quick-modal" aria-hidden="true" style="display: none;">
+      <div class="param-modal-container">
+        <button class="param-modal-close" id="param-modal-close" aria-label="Close Modal">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.5" fill="none">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="param-modal-content" id="param-modal-body">
+          <!-- Rendered dynamically on clicking Quick View -->
+        </div>
+      </div>
+    </div>
+
+    <!-- INDUSTRIES WE SERVE SECTION -->
+    <section class="section-industries" id="industries">
+      <div class="ribbon-header">
+        <h3 class="ribbon-title">Industries We Serve</h3>
+        <p class="ribbon-desc">Custom calibration pipelines conforming to sector-specific quality regulations.</p>
+      </div>
+      <div class="industries-slider-container">
+        <div class="industries-ribbon">
+          <!-- Slide items -->
+          <div class="industry-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+            <span>Pharmaceutical</span>
+          </div>
+          <div class="industry-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            <span>Rubber</span>
+          </div>
+          <div class="industry-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+            <span>Automotive</span>
+          </div>
+          <div class="industry-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            <span>Food & Beverage</span>
+          </div>
+          <div class="industry-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M10 2h4M21 22H3M10 2v4a2 2 0 0 1-2 2H5v14h14V8h-3a2 2 0 0 1-2-2V2z"></path>
+            </svg>
+            <span>Chemical</span>
+          </div>
+          <div class="industry-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect>
+              <line x1="6" y1="6" x2="6" y2="6"></line>
+              <line x1="10" y1="6" x2="14" y2="6"></line>
+              <line x1="6" y1="10" x2="18" y2="10"></line>
+              <line x1="6" y1="14" x2="18" y2="14"></line>
+              <line x1="6" y1="18" x2="18" y2="18"></line>
+            </svg>
+            <span>Electronics</span>
+          </div>
+          <div class="industry-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Manufacturing</span>
+          </div>
+          <div class="industry-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            <span>Research & Labs</span>
+          </div>
+          <div class="industry-item">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            <span>and More</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION (TEXT ONLY FEATURE GRID) -->
+    <section class="section section-facility" id="about">
+      <div class="section-header">
+        <span class="section-tag font-mono">02 // WHY CHOOSE US</span>
+        <h2 class="section-title">Why Choose Teflon Instruments?</h2>
+        <p class="section-subtitle">Delivering precision calibration, national standards traceability, and rapid turnaround for local industry.</p>
+      </div>
+
+      <div class="why-us-feature-grid">
+        <div class="why-us-card">
+          <div class="why-us-icon-box">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h3 class="why-us-card-title">High-Precision Calibration</h3>
+          <p class="why-us-card-desc">Accurate and repeatable calibration measurements using high-grade master instruments traceable to national laboratories.</p>
+        </div>
+
+        <div class="why-us-card">
+          <div class="why-us-icon-box">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          </div>
+          <h3 class="why-us-card-title">NABL Traceable Standards</h3>
+          <p class="why-us-card-desc">Unbroken chain of traceability to National Physical Laboratory (NPL India) and NIST for full audit compliance.</p>
+        </div>
+
+        <div class="why-us-card">
+          <div class="why-us-icon-box">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h3 class="why-us-card-title">Experienced Engineers</h3>
+          <p class="why-us-card-desc">Qualified calibration technicians with expertise across electrical, mechanical, thermal, pressure, and process fields.</p>
+        </div>
+
+        <div class="why-us-card">
+          <div class="why-us-icon-box">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          </div>
+          <h3 class="why-us-card-title">On-Site & In-Lab Service</h3>
+          <p class="why-us-card-desc">Flexible calibration options — send equipment to our laboratory or schedule on-site calibration to minimize factory downtime.</p>
+        </div>
+
+        <div class="why-us-card">
+          <div class="why-us-icon-box">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <h3 class="why-us-card-title">Fast Turnaround Time</h3>
+          <p class="why-us-card-desc">Quick processing and delivery of calibrated instruments to keep your production line running without delay.</p>
+        </div>
+
+        <div class="why-us-card">
+          <div class="why-us-icon-box">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <h3 class="why-us-card-title">Audit-Ready Documentation</h3>
+          <p class="why-us-card-desc">Detailed calibration certificates with reference instrument details and environmental condition records.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS & INSIGHTS -->
+    <section class="section section-insights" id="insights">
+      <!-- Calibration Workflow Step-by-Step -->
+      <div class="workflow-strip">
+        <div class="section-header centered">
+          <span class="section-tag font-mono">03 // HOW IT WORKS</span>
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-subtitle">Our straightforward calibration process ensures accuracy, unbroken traceability, and audit compliance.</p>
+        </div>
+        <div class="workflow-layout">
+          <!-- Step 1 -->
+          <div class="workflow-card">
+            <div class="workflow-step-num font-mono">STEP 01</div>
+            <div class="workflow-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <h3 class="workflow-card-title">Intake & Logistics</h3>
+            <p class="workflow-card-desc">Instruments are received, logged into our secure Cal-Cloud database, and assigned unique metrological tracking IDs for clear custody.</p>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="workflow-card">
+            <div class="workflow-step-num font-mono">STEP 02</div>
+            <div class="workflow-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                <circle cx="12" cy="12" r="10" opacity="0.15"></circle>
+              </svg>
+            </div>
+            <h3 class="workflow-card-title">Thermal Acclimation</h3>
+            <p class="workflow-card-desc">Equipment is acclimated inside our clean environmental chambers (20°C ±0.5°C, 45% ±5% RH) to eliminate materials expansion skew.</p>
+          </div>
+          
+          <!-- Step 3 -->
+          <div class="workflow-card">
+            <div class="workflow-step-num font-mono">STEP 03</div>
+            <div class="workflow-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="12" x2="16" y2="8"></line>
+                <path d="M12 12m-1 0a1 1 0 1 0 2 0 1 1 0 1 0 -2 0"></path>
+              </svg>
+            </div>
+            <h3 class="workflow-card-title">Precision Calibration</h3>
+            <p class="workflow-card-desc">Trained metrologists perform comparative multi-point calibration runs against master references traceable to NPL and NIST standards.</p>
+          </div>
+          
+          <!-- Step 4 -->
+          <div class="workflow-card">
+            <div class="workflow-step-num font-mono">STEP 04</div>
+            <div class="workflow-icon-box">
+              <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="1.5" fill="none">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3 class="workflow-card-title">Certification Release</h3>
+            <p class="workflow-card-desc">Uncertainty budgets are computed. A traceable calibration certificate is signed, sealed, and uploaded to the client portal for instant access.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Latest Insights -->
+      <div class="insights-container">
+        <div class="section-header">
+          <span class="section-tag font-mono">04 // RESOURCES</span>
+          <h2 class="section-title">Calibration Articles & Guides</h2>
+          <p class="section-subtitle">Technical papers and practical guides compiled by our calibration team.</p>
+        </div>
+        
+        <div class="insights-grid">
+          <!-- Card 1 -->
+          <article class="insight-card">
+            <div class="insight-img-wrapper">
+              <img src="assets/images/insight_machinery.png" alt="Calibrating gears" class="insight-img">
+              <span class="insight-date font-mono">08 JUN 2026</span>
+            </div>
+            <div class="insight-content">
+              <h3 class="insight-card-title"><a href="#insights">Why Instrument Calibration is Important in Pharmaceutical Manufacturing</a></h3>
+              <p class="insight-excerpt">Exploring the impact of micro-deviations on active ingredients, FDA compliance requirements, and validation standards under CGMP guidelines.</p>
+              <a href="#insights" class="insight-read-more font-mono">READ TECHNICAL PAPER →</a>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="insight-card">
+            <div class="insight-img-wrapper">
+              <img src="assets/images/insight_technician.png" alt="Calibrating sensors" class="insight-img">
+              <span class="insight-date font-mono">24 MAY 2026</span>
+            </div>
+            <div class="insight-content">
+              <h3 class="insight-card-title"><a href="#insights">How Often Should You Calibrate Your Industrial Temperature Sensors?</a></h3>
+              <p class="insight-excerpt">A mathematical approach based on sensor drift velocity, environmental stresses, and target safety factors to optimize calibration cycles.</p>
+              <a href="#insights" class="insight-read-more font-mono">READ TECHNICAL PAPER →</a>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="insight-card">
+            <div class="insight-img-wrapper">
+              <img src="assets/images/fluke_calibrator.png" alt="Traceability reference calibration" class="insight-img">
+              <span class="insight-date font-mono">11 APR 2026</span>
+            </div>
+            <div class="insight-content">
+              <h3 class="insight-card-title"><a href="#insights">Understanding Traceability: National vs International Calibration Standards</a></h3>
+              <p class="insight-excerpt">A breakdown of measurement traceability, calibration chains of custody, and how to verify reference certificate equivalency.</p>
+              <a href="#insights" class="insight-read-more font-mono">READ TECHNICAL PAPER →</a>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="insight-card">
+            <div class="insight-img-wrapper">
+              <img src="assets/images/facility_panoramic.png" alt="Metrology laboratory setups" class="insight-img">
+              <span class="insight-date font-mono">03 MAR 2026</span>
+            </div>
+            <div class="insight-content">
+              <h3 class="insight-card-title"><a href="#insights">On-site vs In-lab Calibration: Choosing the Right Metrology Approach</a></h3>
+              <p class="insight-excerpt">Analyzing cost factors, environmental control differences, downtime limits, and mechanical integrity requirements for both methods.</p>
+              <a href="#insights" class="insight-read-more font-mono">READ TECHNICAL PAPER →</a>
+            </div>
+          </article>
+        </div>
+    </section>
+
+    <!-- CONTACT & LOCATION SECTION -->
+    <section class="section section-contact" id="contact">
+      <div class="section-header">
+        <span class="section-tag font-mono">05 // GET A QUOTE &amp; CONTACT</span>
+        <h2 class="section-title">Get a Quote or Contact Us</h2>
+        <p class="section-subtitle">Reach out to our calibration team for pricing quotes, on-site scheduling, or technical support.</p>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info-card">
+          <h3>Kochi Office & Lab</h3>
+          <p class="contact-address-text">
+            1153, Peringattu Rd, Chembumukku,<br>
+            Edappally, Kakkanad, Kochi,<br>
+            Kerala 682021
+          </p>
+          <div class="contact-details-list">
+            <div class="contact-detail-item">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" class="contact-detail-icon">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <div>
+                <strong>Direct Lines:</strong><br>
+                +91 97189 33509<br>
+                +91 7012221284
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" class="contact-detail-icon">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <div>
+                <strong>Email Address:</strong><br>
+                <a href="mailto:info@tefloninstruments.in">info@tefloninstruments.in</a>
+              </div>
+            </div>
+            <div class="contact-detail-item">
+              <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" class="contact-detail-icon">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+              <div>
+                <strong>Working Hours:</strong><br>
+                Mon - Sat: 9:00 AM - 6:00 PM<br>
+                Sunday: Closed (Emergency support 24/7)
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-action-buttons">
+            <button class="btn btn-primary btn-rect open-quote-btn">REQUEST CALIBRATION</button>
+            <a href="https://wa.me/919718933509" target="_blank" class="btn btn-secondary btn-whatsapp btn-rect">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 2.019 14.12 1 11.52 1c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.459 3.39 1.331 4.872L1.933 20.39l4.714-1.236zm10.742-5.717c-.296-.147-1.747-.852-2.012-.95-.264-.097-.456-.147-.648.147-.192.294-.744.95-.912 1.146-.169.196-.338.22-.634.072-.296-.147-1.25-.457-2.38-1.457-.88-.778-1.474-1.74-1.646-2.035-.172-.294-.018-.454.13-.601.133-.133.297-.344.446-.516.148-.172.197-.294.296-.49.099-.196.05-.367-.025-.515-.074-.147-.648-1.543-.888-2.13-.233-.564-.47-.488-.648-.497-.168-.008-.36-.009-.551-.009-.192 0-.505.072-.769.36-.264.288-1.01 1.01-1.01 2.46 0 1.45.1.86.326.196.226-.294 1.32-2.01 1.438-2.147.118-.137.228-.2.457-.053.23.147 1.478.75 1.63 1.25.152.5.152.93.076 1.226-.076.297-.456.95-.648 1.146l-.389.39-.026.024z"/>
+              </svg>
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+        
+        <div class="contact-map-wrapper">
+          <iframe 
+            src="https://maps.google.com/maps?q=1153,%20Peringattu%20Rd,%20Chembumukku,%20Edappally,%20Kakkanad,%20Kochi,%20Kerala%20682021&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-cta-bar">
+      <div class="footer-cta-left">
+        <span class="cta-label font-mono">Direct Metrology Desk</span>
+        <h2>+91 97189 33509 &nbsp;/&nbsp; +91 7012221284</h2>
+      </div>
+      <div class="footer-cta-right">
+        <button class="btn btn-secondary btn-large btn-rect open-quote-btn">REQUEST A QUOTE</button>
+      </div>
+    </div>
+    
+    <div class="footer-grid">
+      <!-- Brand Column -->
+      <div class="footer-col brand-col">
+        <h3 class="footer-logo">TEFLON INSTRUMENTS</h3>
+        <p class="logo-sub-footer font-mono">Calibration · Certification · Maintenance</p>
+        <p class="footer-about-text">
+          High-precision B2B calibration &amp; metrology services, traceable to NPL &amp; NIST standards.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4 class="footer-title font-mono">QUICK LINKS</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#parameters">Services &amp; Scope</a></li>
+          <li><a href="#parameters">What We Calibrate</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#insights">Insights</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4 class="footer-title font-mono">CONTACT</h4>
+        <address class="footer-address">
+          1153, Peringattu Rd, Chembumukku,<br>
+          Kakkanad, Kochi, Kerala 682021
+        </address>
+        <div class="footer-address" style="margin-top: 10px;">
+          <a href="tel:+919718933509" style="color: inherit;">+91 97189 33509</a><br>
+          <a href="tel:+917012221284" style="color: inherit;">+91 7012221284</a><br>
+          <a href="mailto:info@tefloninstruments.in">info@tefloninstruments.in</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <p class="copyright">&copy; 2026 Teflon Instruments Private Limited. All rights reserved. Measurements traceable to NPL India.</p>
+        <ul class="legal-links">
+          <li><a href="#contact">Privacy Policy</a></li>
+          <li><a href="#contact">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scope Data & Core Javascript Files -->
+  <script src="parameters-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

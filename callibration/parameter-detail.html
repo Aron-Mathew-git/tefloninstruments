@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Parameter Calibration Details | Teflon Instruments Private Limited</title>
+  <meta name="description" content="Detailed calibration specifications, measurement sub-ranges, resolution, supported instruments, and reference equipment for Teflon Instruments Private Limited.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Standalone Parameter Detail Page Specific Styles */
+    .param-detail-body {
+      background-color: var(--clinical-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .param-header-banner {
+      background: var(--gradient-dark);
+      color: var(--clinical-white);
+      padding: 40px 48px 32px 48px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .param-header-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gradient-primary);
+    }
+
+    .param-header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .back-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--border-radius-micro);
+      transition: all var(--transition-fast);
+    }
+
+    .back-home-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--clinical-white);
+      border-color: var(--teal-accent);
+    }
+
+    .param-badge {
+      display: inline-block;
+      background: var(--teal-glow);
+      color: var(--teal-accent);
+      border: 1px solid rgba(13, 148, 136, 0.3);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .param-main-title {
+      font-size: 2.2rem;
+      color: var(--clinical-white);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .param-main-summary {
+      font-size: 1.05rem;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 850px;
+      line-height: 1.6;
+    }
+
+    .param-detail-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 48px 32px;
+      width: 100%;
+      flex-grow: 1;
+    }
+
+    .param-detail-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (max-width: 992px) {
+      .param-detail-grid {
+        grid-template-columns: 1fr;
+      }
+      .param-header-banner {
+        padding: 32px 24px;
+      }
+      .param-detail-container {
+        padding: 32px 20px;
+      }
+    }
+
+    .spec-card-box {
+      background: var(--clinical-white);
+      border: 1px solid var(--border-grey);
+      border-radius: var(--border-radius-card);
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(15, 23, 41, 0.04);
+      margin-bottom: 32px;
+    }
+
+    .spec-title-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.15rem;
+      color: var(--deep-ink-navy);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-grey);
+    }
+
+    .spec-title-head svg {
+      color: var(--teal-accent);
+    }
+
+    .photo-gallery-wrapper {
+      position: relative;
+      border-radius: var(--border-radius-card);
+      overflow: hidden;
+      border: 1px solid var(--border-grey);
+      background: var(--sterile-light-grey);
+      box-shadow: 0 4px 20px rgba(15, 23, 41, 0.06);
+    }
+
+    .photo-slide-item {
+      display: none;
+      position: relative;
+    }
+
+    .photo-slide-item.active {
+      display: block;
+    }
+
+    .photo-slide-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(0deg, rgba(15, 23, 41, 0.9) 0%, rgba(15, 23, 41, 0.4) 70%, transparent 100%);
+      color: var(--clinical-white);
+      padding: 20px 24px 16px 24px;
+    }
+
+    .photo-caption-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      display: block;
+    }
+
+    .photo-caption-count {
+      font-size: 0.75rem;
+      color: var(--teal-accent);
+      font-family: var(--font-mono);
+      margin-top: 2px;
+    }
+
+    .gallery-nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: var(--deep-ink-navy);
+      color: var(--clinical-white);
+    }
+
+    .gallery-arrow-btn {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: var(--clinical-white);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition-fast);
+    }
+
+    .gallery-arrow-btn:hover {
+      background: var(--electric-cyan);
+    }
+
+    .gallery-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .gallery-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .gallery-dot.active {
+      background: var(--teal-accent);
+      transform: scale(1.3);
+    }
+
+    .action-cta-box {
+      background: var(--gradient-dark);
+      color: var(--clinical-white);
+      border-radius: var(--border-radius-card);
+      padding: 32px;
+      margin-top: 32px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .action-cta-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gradient-primary);
+    }
+
+    .action-cta-title {
+      color: var(--clinical-white);
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .action-cta-desc {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    .cta-buttons-flex {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body class="param-detail-body">
+
+  <!-- TOP HEADER -->
+  <header class="main-header">
+    <div class="top-bar">
+      <div class="top-bar-left">
+        <div class="top-bar-item">
+          <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" style="margin-right: 4px; color: var(--teal-accent);">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>1153, Peringattu Rd, Chembumukku, Edappally, Kakkanad, Kochi, Kerala 682021</span>
+        </div>
+      </div>
+      <div class="top-bar-right">
+        <div class="top-bar-item">
+          <span class="status-indicator"></span>
+          <span class="tech-label font-mono">LAB ACTIVE</span>
+        </div>
+        <div class="top-bar-item">
+          <span class="font-mono" style="color: var(--teal-accent); font-weight: 600;">PH:</span>
+          <span><a href="tel:+919718933509" style="color: inherit; text-decoration: none;">+91 97189 33509</a> &nbsp;|&nbsp; <a href="tel:+917012221284" style="color: inherit; text-decoration: none;">+91 7012221284</a></span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav-bar">
+      <div class="nav-brand">
+        <a href="index.html#home" class="logo-link">
+          <span class="logo-main">TEFLON INSTRUMENTS PRIVATE LIMITED</span>
+          <span class="logo-sub">Calibration | Certification | Maintenance</span>
+        </a>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html#parameters" class="back-home-btn" style="color: var(--deep-ink-navy); border-color: var(--border-grey);">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to All Parameters</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- PARAMETER HEADER BANNER -->
+  <section class="param-header-banner" id="param-header-banner">
+    <div style="max-width: 1280px; margin: 0 auto;">
+      <div class="param-header-nav">
+        <a href="index.html#parameters" class="back-home-btn">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>All Calibration Scope</span>
+        </a>
+        <span class="font-mono" id="param-code-badge" style="color: var(--teal-accent); font-weight: 600;">CODE // --</span>
+      </div>
+
+      <span class="param-badge" id="discipline-title-badge">Discipline</span>
+      <h1 class="param-main-title" id="param-display-name">Loading Parameter Details...</h1>
+      <p class="param-main-summary" id="param-display-summary">
+        Fetching technical specifications and calibration capabilities...
+      </p>
+    </div>
+  </section>
+
+  <!-- MAIN PARAMETER CONTENT GRID -->
+  <main class="param-detail-container">
+    <div class="param-detail-grid">
+
+      <!-- LEFT COLUMN: TECHNICAL SPECS & INSTRUMENTS -->
+      <div class="param-left-col">
+        
+        <!-- Ranges & Resolution Table -->
+        <div class="spec-card-box">
+          <h3 class="spec-title-head">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+            Calibration Sub-Ranges &amp; Resolution
+          </h3>
+          <div class="ranges-table-wrapper">
+            <table class="ranges-table">
+              <thead>
+                <tr>
+                  <th>Parameter / Sub-part</th>
+                  <th>Operational Range</th>
+                  <th>Resolution</th>
+                </tr>
+              </thead>
+              <tbody id="param-ranges-tbody">
+                <!-- Loaded dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Supported Instruments -->
+        <div class="spec-card-box">
+          <h3 class="spec-title-head">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <polyline points="9 11 12 14 22 4"></polyline>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>
+            Supported Equipment &amp; Instrument Types
+          </h3>
+          <div class="instruments-list-box">
+            <ul id="param-instruments-ul">
+              <!-- Loaded dynamically -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- Traceability & Compliance Notice -->
+        <div class="spec-card-box" style="background: rgba(13, 148, 136, 0.04); border-color: rgba(13, 148, 136, 0.2);">
+          <h4 style="font-size: 0.95rem; color: var(--deep-ink-navy); margin-bottom: 8px;">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--teal-accent)" stroke-width="2" fill="none" style="margin-right: 6px;">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Traceability &amp; Quality Standard
+          </h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
+            All measurements are performed against master reference standards directly traceable to the <strong>National Physical Laboratory (NPL India)</strong> and <strong>NIST</strong> in accordance with ISO/IEC 17025 principles. Official Calibration Measurement Capability (CMC) budgets are available upon request.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN: REFERENCE GALLERY & CTA -->
+      <div class="param-right-col">
+        
+        <!-- Instrument Photo Gallery / Carousel -->
+        <div class="spec-card-box" style="padding: 24px;">
+          <h3 class="spec-title-head" style="margin-bottom: 16px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            Equipment &amp; Calibration Gallery
+          </h3>
+
+          <div class="photo-gallery-wrapper" id="photo-gallery-box">
+            <div id="photo-slides-container">
+              <!-- Loaded dynamically -->
+            </div>
+            <div class="gallery-nav-bar" id="gallery-nav-bar" style="display: none;">
+              <button class="gallery-arrow-btn" id="gallery-prev-btn" aria-label="Previous Photo">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <div class="gallery-dots" id="gallery-dots-container"></div>
+              <button class="gallery-arrow-btn" id="gallery-next-btn" aria-label="Next Photo">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical Quote Action Box -->
+        <div class="action-cta-box">
+          <h3 class="action-cta-title">Need Calibration for this Instrument?</h3>
+          <p class="action-cta-desc">Submit your specifications for a fast B2B quotation, certificate release, or on-site scheduling.</p>
+          <div class="cta-buttons-flex">
+            <a href="#" id="whatsapp-quote-link" target="_blank" class="btn btn-primary btn-rect btn-whatsapp">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 2.019 14.12 1 11.52 1c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.459 3.39 1.331 4.872L1.933 20.39l4.714-1.236zm10.742-5.717c-.296-.147-1.747-.852-2.012-.95-.264-.097-.456-.147-.648.147-.192.294-.744.95-.912 1.146-.169.196-.338.22-.634.072-.296-.147-1.25-.457-2.38-1.457-.88-.778-1.474-1.74-1.646-2.035-.172-.294-.018-.454.13-.601.133-.133.297-.344.446-.516.148-.172.197-.294.296-.49.099-.196.05-.367-.025-.515-.074-.147-.648-1.543-.888-2.13-.233-.564-.47-.488-.648-.497-.168-.008-.36-.009-.551-.009-.192 0-.505.072-.769.36-.264.288-1.01 1.01-1.01 2.46 0 1.45.1.86.326.196.226-.294 1.32-2.01 1.438-2.147.118-.137.228-.2.457-.053.23.147 1.478.75 1.63 1.25.152.5.152.93.076 1.226-.076.297-.456.95-.648 1.146l-.389.39-.026.024z"/>
+              </svg>
+              QUICK WHATSAPP ENQUIRY
+            </a>
+            <a href="index.html#contact" class="btn btn-outline btn-rect" style="color: var(--clinical-white); border-color: rgba(255, 255, 255, 0.4);">
+              GO TO CONTACT FORM
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="background: var(--gradient-dark); color: var(--clinical-white); padding: 40px 32px 24px 32px; border-top: 1px solid var(--border-dark); margin-top: auto;">
+    <div style="max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+      <div>
+        <h4 style="color: var(--clinical-white); font-size: 1.1rem;">TEFLON INSTRUMENTS PRIVATE LIMITED</h4>
+        <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.8rem; margin-top: 4px;">Precision Metrology &amp; Industrial Calibration Laboratory</p>
+      </div>
+      <div class="font-mono" style="font-size: 0.8rem; color: rgba(255, 255, 255, 0.6);">
+        &copy; 2026 Teflon Instruments Private Limited. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Imports -->
+  <script src="parameters-data.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Parse URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const discId = urlParams.get('disc');
+      const paramId = urlParams.get('param');
+
+      if (typeof NABL_SCOPE_DATA === 'undefined') return;
+
+      // Find target discipline and parameter
+      let targetDisc = null;
+      let targetParam = null;
+
+      if (discId && paramId) {
+        targetDisc = NABL_SCOPE_DATA.disciplines.find(d => d.id === discId);
+        if (targetDisc) {
+          targetParam = targetDisc.parameters.find(p => p.id === paramId);
+        }
+      }
+
+      // Fallback to first discipline & parameter if not found
+      if (!targetDisc || !targetParam) {
+        targetDisc = NABL_SCOPE_DATA.disciplines[0];
+        targetParam = targetDisc.parameters[0];
+      }
+
+      // Update Page Title
+      document.title = `${targetParam.name} Calibration Specification | Teflon Instruments`;
+
+      // Render Header Info
+      document.getElementById('param-code-badge').textContent = `${targetDisc.code} // ${targetParam.id.toUpperCase()}`;
+      document.getElementById('discipline-title-badge').textContent = `${targetDisc.title} Discipline`;
+      document.getElementById('param-display-name').textContent = targetParam.name;
+      document.getElementById('param-display-summary').textContent = targetParam.summary || targetDisc.description;
+
+      // Render Ranges Table
+      const tbody = document.getElementById('param-ranges-tbody');
+      let tbodyHtml = '';
+      if (targetParam.subRanges && targetParam.subRanges.length > 0) {
+        targetParam.subRanges.forEach(r => {
+          tbodyHtml += `
+            <tr>
+              <td><strong>${targetParam.name}</strong></td>
+              <td>${r.range}</td>
+              <td>${r.resolution || 'Standard'}</td>
+            </tr>
+          `;
+        });
+      } else {
+        tbodyHtml = `<tr><td colspan="3">Standard Calibration Operational Range</td></tr>`;
+      }
+      tbody.innerHTML = tbodyHtml;
+
+      // Render Instruments List
+      const ul = document.getElementById('param-instruments-ul');
+      let ulHtml = '';
+      if (targetParam.instruments && targetParam.instruments.length > 0) {
+        targetParam.instruments.forEach(inst => {
+          ulHtml += `<li>${inst}</li>`;
+        });
+      } else {
+        ulHtml = `<li>Standard Calibration Instruments</li>`;
+      }
+      ul.innerHTML = ulHtml;
+
+      // Render Gallery Slideshow
+      const slidesContainer = document.getElementById('photo-slides-container');
+      const navBar = document.getElementById('gallery-nav-bar');
+      const dotsContainer = document.getElementById('gallery-dots-container');
+
+      let slidesHtml = '';
+      let dotsHtml = '';
+      const images = targetParam.images || [];
+
+      if (images.length > 0) {
+        images.forEach((img, idx) => {
+          slidesHtml += `
+            <div class="photo-slide-item ${idx === 0 ? 'active' : ''}" data-slide="${idx}">
+              <img src="${img.src}" alt="${img.alt || img.title}" class="photo-slide-img" onerror="this.src='assets/images/facility_panoramic.png';">
+              <div class="photo-slide-caption">
+                <span class="photo-caption-title">${img.title}</span>
+                ${images.length > 1 ? `<span class="photo-caption-count">${idx + 1} of ${images.length} Equipment Photos</span>` : ''}
+              </div>
+            </div>
+          `;
+          dotsHtml += `<button class="gallery-dot ${idx === 0 ? 'active' : ''}" data-dot="${idx}" aria-label="Photo ${idx + 1}"></button>`;
+        });
+
+        slidesContainer.innerHTML = slidesHtml;
+        dotsContainer.innerHTML = dotsHtml;
+
+        if (images.length > 1) {
+          navBar.style.display = 'flex';
+          initGalleryControls(images.length);
+        }
+      } else {
+        slidesContainer.innerHTML = `
+          <div class="photo-slide-item active">
+            <img src="assets/images/facility_panoramic.png" alt="Metrology Lab" class="photo-slide-img">
+            <div class="photo-slide-caption">
+              <span class="photo-caption-title">Teflon Instruments Metrology Laboratory</span>
+            </div>
+          </div>
+        `;
+      }
+
+      // Configure WhatsApp Quick Quote Link
+      const waBtn = document.getElementById('whatsapp-quote-link');
+      if (waBtn) {
+        const msg = `⚡ *CALIBRATION ENQUIRY* ⚡\n-------------------------\n📌 *Discipline:* ${targetDisc.title} (${targetDisc.code})\n🛠️ *Parameter:* ${targetParam.name}\n-------------------------\nHello Teflon Instruments, I would like to request a quote and turnaround details for calibrating ${targetParam.name}.`;
+        waBtn.href = `https://wa.me/919718933509?text=${encodeURIComponent(msg)}`;
+      }
+
+      // Slideshow logic
+      function initGalleryControls(total) {
+        let current = 0;
+        const slides = slidesContainer.querySelectorAll('.photo-slide-item');
+        const dots = dotsContainer.querySelectorAll('.gallery-dot');
+        const prevBtn = document.getElementById('gallery-prev-btn');
+        const nextBtn = document.getElementById('gallery-next-btn');
+
+        function goTo(idx) {
+          slides[current].classList.remove('active');
+          dots[current].classList.remove('active');
+          current = (idx + total) % total;
+          slides[current].classList.add('active');
+          dots[current].classList.add('active');
+        }
+
+        prevBtn?.addEventListener('click', () => goTo(current - 1));
+        nextBtn?.addEventListener('click', () => goTo(current + 1));
+        dots.forEach((dot, idx) => dot.addEventListener('click', () => goTo(idx)));
+
+        // Touch Swipe Support for Gallery
+        let touchStartX = 0;
+        let touchEndX = 0;
+        slidesContainer.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        slidesContainer.addEventListener('touchend', (e) => {
+          touchEndX = e.changedTouches[0].screenX;
+          if (touchEndX < touchStartX - 40) {
+            goTo(current + 1);
+          } else if (touchEndX > touchStartX + 40) {
+            goTo(current - 1);
+          }
+        }, { passive: true });
+
+        // Autoplay every 4s
+        setInterval(() => goTo(current + 1), 4000);
+      }
+    });
+  </script>
+</body>
+</html>
