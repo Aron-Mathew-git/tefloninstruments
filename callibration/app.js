@@ -655,29 +655,7 @@ document.addEventListener('DOMContentLoaded', () => {
     heroExploreBtn.addEventListener('click', scrollToParameters);
   }
 
-  document.querySelectorAll('a[href="#parameters"]').forEach(link => {
-    link.addEventListener('click', (e) => {
-      const discId = link.getAttribute('data-discipline');
-      if (discId && typeof window.selectDisciplineById === 'function') {
-        window.selectDisciplineById(discId);
-      } else {
-        scrollToParameters(e);
-      }
-    });
-  });
-
-  // Mobile Drawer Submenu Accordion Toggle
-  const mobileSubToggle = document.getElementById('mobile-dropdown-toggle-btn');
-  const mobileSubMenu = document.getElementById('mobile-dropdown-sub');
-  if (mobileSubToggle && mobileSubMenu) {
-    mobileSubToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      mobileSubMenu.classList.toggle('is-open');
-      mobileSubToggle.classList.toggle('is-open');
-    });
-  }
-
-  // Dropdown Link Clicks -> Jump & Select Discipline in Parameter Explorer
+  // Dropdown Discipline Links -> Open Dedicated Detail View in Same Window
   const disciplineNavLinks = document.querySelectorAll('[data-discipline]');
   disciplineNavLinks.forEach(link => {
     link.addEventListener('click', (e) => {
@@ -689,14 +667,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (mobileMenuDrawer && mobileMenuDrawer.classList.contains('open')) {
         mobileMenuDrawer.classList.remove('open');
         mobileMenuToggle?.classList.remove('open');
+        document.body.classList.remove('no-scroll');
       }
 
       // Close desktop dropdown
       navDropdown?.classList.remove('is-open');
 
-      // Trigger parameter explorer discipline filter if loaded
-      if (discId && typeof window.selectDisciplineById === 'function') {
-        window.selectDisciplineById(discId);
+      if (discId) {
+        e.preventDefault();
+        window.location.href = `parameter-detail.html?disc=${discId}`;
       }
     });
   });
@@ -745,7 +724,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (searchClear) {
           searchClear.style.display = searchQuery.length > 0 ? 'flex' : 'none';
         }
-        animateGridRender();
+        renderBreadcrumbs();
+        renderParameterGrid();
       });
     }
 
@@ -755,54 +735,39 @@ document.addEventListener('DOMContentLoaded', () => {
         if (searchInput) searchInput.value = '';
         searchClear.style.display = 'none';
         if (searchCounter) searchCounter.style.display = 'none';
-        animateGridRender();
+        renderBreadcrumbs();
+        renderParameterGrid();
       });
     }
 
-    // Render Level 1 Discipline Selector
+    // Render Level 1 Discipline Selector (Clean 14-Category Grid for Homepage)
     function renderDisciplineSelector() {
-      let html = `
-        <button class="discipline-card-btn ${activeDisciplineId === null ? 'active' : ''}" data-discipline-id="all">
-          <div class="discipline-icon-box">
-            <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2" fill="none">
-              <rect x="3" y="3" width="7" height="7" rx="1"/>
-              <rect x="14" y="3" width="7" height="7" rx="1"/>
-              <rect x="14" y="14" width="7" height="7" rx="1"/>
-              <rect x="3" y="14" width="7" height="7" rx="1"/>
-            </svg>
-          </div>
-          <span class="discipline-card-title">All Disciplines</span>
-          <span class="discipline-card-code">NABL 129 Scope</span>
-        </button>
-      `;
+      let html = '';
 
       NABL_SCOPE_DATA.disciplines.forEach(d => {
-        const isActive = activeDisciplineId === d.id;
         html += `
-          <button class="discipline-card-btn ${isActive ? 'active' : ''}" data-discipline-id="${d.id}">
+          <button class="discipline-card-btn" data-discipline-id="${d.id}">
             <div class="discipline-icon-box">${d.icon}</div>
             <span class="discipline-card-title">${d.title}</span>
-            <span class="discipline-card-code">${d.code} (${d.parameterCount})</span>
+            <span class="discipline-card-code">${d.code} (${d.parameterCount} Params)</span>
           </button>
         `;
       });
 
       selectorContainer.innerHTML = html;
 
-      // Event listeners for discipline buttons
+      // Event listeners for discipline buttons -> navigate directly to detail page in SAME window
       selectorContainer.querySelectorAll('.discipline-card-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           const discId = btn.getAttribute('data-discipline-id');
-          activeDisciplineId = discId === 'all' ? null : discId;
-          renderDisciplineSelector();
-          renderBreadcrumbs();
-          animateGridRender();
-          scrollToGrid();
+          if (discId) {
+            window.location.href = `parameter-detail.html?disc=${discId}`;
+          }
         });
       });
     }
 
-    // Helper to smoothly scroll down to parameter grid / sub-divisions
+    // Helper to smoothly scroll down to parameter search results
     function scrollToGrid() {
       const gridEl = document.getElementById('parameter-grid');
       if (gridEl) {
@@ -813,91 +778,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Render Breadcrumbs
     function renderBreadcrumbs() {
-      let html = `<span class="breadcrumb-item ${activeDisciplineId === null ? 'active' : ''}" id="bc-root-btn">All Calibration Disciplines</span>`;
-
-      if (activeDisciplineId !== null) {
-        const discObj = NABL_SCOPE_DATA.disciplines.find(d => d.id === activeDisciplineId);
-        if (discObj) {
-          html += ` <span class="breadcrumb-separator">/</span> <span class="breadcrumb-item active" id="bc-disc-btn">${discObj.title}</span>`;
-        }
+      if (!searchQuery) {
+        if (breadcrumbContainer) breadcrumbContainer.style.display = 'none';
+        return;
       }
 
-      if (searchQuery) {
-        html += ` <span class="breadcrumb-separator">/</span> <span class="breadcrumb-item active">Search: "${searchQuery}"</span>`;
-      }
+      if (breadcrumbContainer) breadcrumbContainer.style.display = 'flex';
+      let html = `<span class="breadcrumb-item" id="bc-root-btn">All Calibration Disciplines</span>`;
+      html += ` <span class="breadcrumb-separator">/</span> <span class="breadcrumb-item active">Search: "${searchQuery}"</span>`;
 
       breadcrumbContainer.innerHTML = html;
 
       const rootBtn = document.getElementById('bc-root-btn');
       if (rootBtn) {
         rootBtn.addEventListener('click', () => {
-          activeDisciplineId = null;
           searchQuery = '';
           if (searchInput) searchInput.value = '';
           if (searchClear) searchClear.style.display = 'none';
           if (searchCounter) searchCounter.style.display = 'none';
-          renderDisciplineSelector();
           renderBreadcrumbs();
-          animateGridRender();
-          scrollToGrid();
+          renderParameterGrid();
         });
       }
     }
 
-    // Smooth Grid Animation
-    function animateGridRender() {
-      gridContainer.classList.add('grid-fade-out');
-      setTimeout(() => {
-        renderParameterGrid();
-        gridContainer.classList.remove('grid-fade-out');
-        gridContainer.classList.add('grid-fade-in');
-        setTimeout(() => gridContainer.classList.remove('grid-fade-in'), 300);
-      }, 150);
-    }
-
-    // Render Level 2 Parameter Grid
+    // Render Level 2 Parameter Grid (Populated ONLY during live search to keep homepage compact)
     function renderParameterGrid() {
+      // If no search query, clear parameter grid to keep homepage sleek and short
+      if (!searchQuery) {
+        gridContainer.innerHTML = '';
+        if (searchCounter) searchCounter.style.display = 'none';
+        if (breadcrumbContainer) breadcrumbContainer.style.display = 'none';
+        return;
+      }
+
+      if (breadcrumbContainer) breadcrumbContainer.style.display = 'flex';
+
       let parametersToRender = [];
 
       NABL_SCOPE_DATA.disciplines.forEach(d => {
-        if (activeDisciplineId === null || activeDisciplineId === d.id) {
-          d.parameters.forEach(p => {
-            // Apply Live Search Filter
-            if (searchQuery) {
-              const nameMatch = p.name.toLowerCase().includes(searchQuery);
-              const summaryMatch = p.summary.toLowerCase().includes(searchQuery);
-              const instMatch = p.instruments && p.instruments.some(inst => inst.toLowerCase().includes(searchQuery));
-              const subrangeMatch = p.subRanges && p.subRanges.some(sr => sr.range.toLowerCase().includes(searchQuery));
+        d.parameters.forEach(p => {
+          // Apply Live Search Filter
+          const nameMatch = p.name.toLowerCase().includes(searchQuery);
+          const summaryMatch = p.summary && p.summary.toLowerCase().includes(searchQuery);
+          const instMatch = p.instruments && p.instruments.some(inst => inst.toLowerCase().includes(searchQuery));
+          const subrangeMatch = p.subRanges && p.subRanges.some(sr => 
+            sr.range.toLowerCase().includes(searchQuery) || 
+            (sr.resolution && sr.resolution.toLowerCase().includes(searchQuery))
+          );
+          const discTitleMatch = d.title.toLowerCase().includes(searchQuery);
+          const discCodeMatch = d.code.toLowerCase().includes(searchQuery);
 
-              if (nameMatch || summaryMatch || instMatch || subrangeMatch) {
-                parametersToRender.push({ ...p, disciplineTitle: d.title, disciplineId: d.id, disciplineCode: d.code });
-              }
-            } else {
-              parametersToRender.push({ ...p, disciplineTitle: d.title, disciplineId: d.id, disciplineCode: d.code });
-            }
-          });
-        }
+          if (nameMatch || summaryMatch || instMatch || subrangeMatch || discTitleMatch || discCodeMatch) {
+            parametersToRender.push({ ...p, disciplineTitle: d.title, disciplineId: d.id, disciplineCode: d.code });
+          }
+        });
       });
 
       // Update Search Counter Badge
       if (searchCounter) {
-        if (searchQuery) {
-          searchCounter.textContent = `Found ${parametersToRender.length} parameters matching "${searchQuery}"`;
-          searchCounter.style.display = 'inline-block';
-        } else {
-          searchCounter.style.display = 'none';
-        }
+        searchCounter.textContent = `Found ${parametersToRender.length} parameters matching "${searchQuery}"`;
+        searchCounter.style.display = 'inline-block';
       }
 
       if (parametersToRender.length === 0) {
         gridContainer.innerHTML = `
-          <div style="grid-column: 1 / -1; text-align: center; padding: 48px; background: var(--clinical-white); border: 1px dashed var(--border-grey); border-radius: var(--border-radius-card);">
-            <svg viewBox="0 0 24 24" width="40" height="40" stroke="var(--text-muted)" stroke-width="1.5" fill="none" style="margin-bottom: 12px;">
+          <div style="grid-column: 1 / -1; text-align: center; padding: 36px; background: var(--clinical-white); border: 1px dashed var(--border-grey); border-radius: var(--border-radius-card);">
+            <svg viewBox="0 0 24 24" width="36" height="36" stroke="var(--text-muted)" stroke-width="1.5" fill="none" style="margin-bottom: 8px;">
               <circle cx="11" cy="11" r="8"></circle>
               <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
             </svg>
-            <h4 style="font-size: 1.1rem; color: var(--deep-ink-navy); margin-bottom: 4px;">No parameters found</h4>
-            <p style="font-size: 0.88rem; color: var(--text-muted);">Try searching for a different instrument (e.g. "Multimeter", "Pressure", "Thermal") or select "All Disciplines".</p>
+            <h4 style="font-size: 1rem; color: var(--deep-ink-navy); margin-bottom: 4px;">No matching parameters found</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">Try searching for a different instrument (e.g. "Multimeter", "Pressure", "Thermal") or click a discipline card above.</p>
           </div>
         `;
         return;
@@ -932,13 +884,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       gridContainer.innerHTML = html;
 
-      // Card-level click listener -> open sub-divisions & quick view
+      // Card-level click listener -> open parameter detail page in SAME window
       gridContainer.querySelectorAll('.explorer-param-card').forEach(card => {
         card.addEventListener('click', (e) => {
           if (!e.target.closest('.quote-param-btn') && !e.target.closest('.explorer-param-link-out')) {
             const discId = card.getAttribute('data-disc-id');
             const paramId = card.getAttribute('data-param-id');
-            openQuickViewModal(discId, paramId);
+            window.location.href = `parameter-detail.html?disc=${discId}&param=${paramId}`;
           }
         });
       });
@@ -1017,7 +969,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <button class="btn btn-primary btn-rect open-modal-quote-btn" data-disc-id="${discId}" data-param-name="${paramObj.name}">
             REQUEST QUOTE FOR ${paramObj.name.toUpperCase()}
           </button>
-          <a href="parameter-detail.html?disc=${discId}&param=${paramId}" target="_blank" class="btn btn-secondary btn-rect">
+          <a href="parameter-detail.html?disc=${discId}&param=${paramId}" class="btn btn-secondary btn-rect">
             Open Full Specifications Page ↗
           </a>
         </div>

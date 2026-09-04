@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <title>Parameter Calibration Details | Teflon Instruments Private Limited</title>
+  <title>Discipline Calibration Specifications | Teflon Instruments Private Limited</title>
   <meta name="description" content="Detailed calibration specifications, measurement sub-ranges, resolution, supported instruments, and reference equipment for Teflon Instruments Private Limited.">
 
   <!-- Google Fonts: Plus Jakarta Sans -->
@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* Standalone Parameter Detail Page Specific Styles */
     .param-detail-body {
       background-color: var(--clinical-white);
       min-height: 100vh;
@@ -26,7 +25,7 @@
     .param-header-banner {
       background: var(--gradient-dark);
       color: var(--clinical-white);
-      padding: 40px 48px 32px 48px;
+      padding: 36px 40px 28px 40px;
       position: relative;
       overflow: hidden;
       border-bottom: 1px solid var(--border-dark);
@@ -46,7 +45,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .back-home-btn {
@@ -57,15 +58,45 @@
       font-size: 0.85rem;
       font-weight: 600;
       padding: 8px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: var(--border-radius-micro);
       transition: all var(--transition-fast);
+      text-decoration: none;
     }
 
     .back-home-btn:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.12);
       color: var(--clinical-white);
       border-color: var(--teal-accent);
+    }
+
+    .disc-select-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .disc-select-label {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-family: var(--font-mono);
+    }
+
+    .disc-switcher-select {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--clinical-white);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 8px 14px;
+      border-radius: var(--border-radius-micro);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .disc-switcher-select:focus {
+      border-color: var(--electric-cyan);
     }
 
     .param-badge {
@@ -79,47 +110,246 @@
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .param-main-title {
       font-size: 2.2rem;
       color: var(--clinical-white);
-      margin-bottom: 12px;
-      line-height: 1.2;
+      margin-bottom: 8px;
+      line-height: 1.25;
     }
 
     .param-main-summary {
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: rgba(255, 255, 255, 0.75);
-      max-width: 850px;
+      max-width: 900px;
       line-height: 1.6;
     }
 
+    /* Live Search & Toolbar Section */
+    .detail-toolbar-section {
+      background: var(--sterile-light-grey);
+      border-bottom: 1px solid var(--border-grey);
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+    }
+
+    .detail-toolbar-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .detail-search-group {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .detail-search-group .search-icon {
+      position: absolute;
+      left: 16px;
+      color: var(--electric-cyan);
+      pointer-events: none;
+    }
+
+    .detail-search-input {
+      width: 100%;
+      padding: 14px 44px 14px 44px;
+      background: var(--clinical-white);
+      border: 1.5px solid var(--border-grey);
+      border-radius: var(--border-radius-card);
+      font-family: var(--font-sans);
+      font-size: 0.95rem;
+      color: var(--deep-ink-navy);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+      transition: all var(--transition-fast);
+    }
+
+    .detail-search-input:focus {
+      outline: none;
+      border-color: var(--electric-cyan);
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.12);
+    }
+
+    .detail-search-clear {
+      position: absolute;
+      right: 14px;
+      background: var(--sterile-light-grey);
+      border: 1px solid var(--border-grey);
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .subparam-pills-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .subparam-pill-btn {
+      background: var(--clinical-white);
+      border: 1px solid var(--border-grey);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all var(--transition-fast);
+    }
+
+    .subparam-pill-btn:hover {
+      border-color: var(--electric-cyan);
+      color: var(--electric-cyan);
+    }
+
+    .subparam-pill-btn.active {
+      background: var(--gradient-primary);
+      color: var(--clinical-white);
+      border-color: transparent;
+    }
+
+    /* Sub-Parameter Cards List */
     .param-detail-container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 48px 32px;
+      padding: 36px 32px 60px 32px;
       width: 100%;
       flex-grow: 1;
     }
 
-    .param-detail-grid {
+    .subparams-list-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .subpart-card {
+      background: var(--clinical-white);
+      border: 1px solid var(--border-grey);
+      border-radius: var(--border-radius-card);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(15, 23, 41, 0.04);
+      transition: all var(--transition-smooth);
+      scroll-margin-top: 140px;
+    }
+
+    .subpart-card:hover {
+      border-color: rgba(2, 132, 199, 0.3);
+      box-shadow: 0 12px 32px rgba(15, 23, 41, 0.08);
+    }
+
+    .subpart-header {
+      background: linear-gradient(90deg, var(--sterile-light-grey) 0%, rgba(2, 132, 199, 0.03) 100%);
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border-grey);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .subpart-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .subpart-id-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--teal-accent);
+      background: var(--teal-glow);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .subpart-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--deep-ink-navy);
+    }
+
+    .subpart-body {
+      padding: 28px;
       display: grid;
       grid-template-columns: 1.2fr 1fr;
-      gap: 40px;
+      gap: 32px;
       align-items: start;
     }
 
     @media (max-width: 992px) {
-      .param-detail-grid {
+      .subpart-body {
         grid-template-columns: 1fr;
       }
       .param-header-banner {
-        padding: 32px 24px;
+        padding: 24px 16px;
+      }
+      .detail-toolbar-section {
+        padding: 14px 16px;
       }
       .param-detail-container {
-        padding: 32px 20px;
+        padding: 20px 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .param-main-title {
+        font-size: 1.6rem;
+      }
+      .param-header-nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .back-home-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .disc-select-wrapper {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .disc-switcher-select {
+        width: 100%;
+        font-size: 16px !important;
+        padding: 12px;
+      }
+      .detail-search-input {
+        font-size: 16px !important;
+        padding: 12px 40px 12px 40px;
+      }
+      .subpart-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .subpart-header .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+      }
+      .subpart-body {
+        padding: 16px;
       }
     }
 
@@ -127,19 +357,22 @@
       background: var(--clinical-white);
       border: 1px solid var(--border-grey);
       border-radius: var(--border-radius-card);
-      padding: 32px;
-      box-shadow: 0 4px 20px rgba(15, 23, 41, 0.04);
-      margin-bottom: 32px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .spec-card-box:last-child {
+      margin-bottom: 0;
     }
 
     .spec-title-head {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 1.15rem;
+      gap: 8px;
+      font-size: 1.05rem;
       color: var(--deep-ink-navy);
-      margin-bottom: 20px;
-      padding-bottom: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
       border-bottom: 1px solid var(--border-grey);
     }
 
@@ -147,139 +380,48 @@
       color: var(--teal-accent);
     }
 
-    .photo-gallery-wrapper {
-      position: relative;
+    .subpart-photo-box {
+      border: 1px solid var(--border-grey);
       border-radius: var(--border-radius-card);
       overflow: hidden;
-      border: 1px solid var(--border-grey);
       background: var(--sterile-light-grey);
-      box-shadow: 0 4px 20px rgba(15, 23, 41, 0.06);
+      margin-bottom: 20px;
     }
 
-    .photo-slide-item {
-      display: none;
-      position: relative;
-    }
-
-    .photo-slide-item.active {
-      display: block;
-    }
-
-    .photo-slide-img {
+    .subpart-img {
       width: 100%;
-      height: 380px;
+      height: 260px;
       object-fit: cover;
       display: block;
     }
 
-    .photo-slide-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(0deg, rgba(15, 23, 41, 0.9) 0%, rgba(15, 23, 41, 0.4) 70%, transparent 100%);
-      color: var(--clinical-white);
-      padding: 20px 24px 16px 24px;
-    }
-
-    .photo-caption-title {
-      font-size: 0.95rem;
-      font-weight: 700;
-      display: block;
-    }
-
-    .photo-caption-count {
-      font-size: 0.75rem;
-      color: var(--teal-accent);
+    .subpart-img-caption {
+      padding: 10px 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      background: var(--clinical-white);
+      border-top: 1px solid var(--border-grey);
       font-family: var(--font-mono);
-      margin-top: 2px;
     }
 
-    .gallery-nav-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 20px;
-      background: var(--deep-ink-navy);
-      color: var(--clinical-white);
-    }
-
-    .gallery-arrow-btn {
-      background: rgba(255, 255, 255, 0.1);
-      border: none;
-      color: var(--clinical-white);
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background var(--transition-fast);
-    }
-
-    .gallery-arrow-btn:hover {
-      background: var(--electric-cyan);
-    }
-
-    .gallery-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .gallery-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      border: none;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-    }
-
-    .gallery-dot.active {
-      background: var(--teal-accent);
-      transform: scale(1.3);
-    }
-
-    .action-cta-box {
+    .subpart-quote-box {
       background: var(--gradient-dark);
       color: var(--clinical-white);
       border-radius: var(--border-radius-card);
-      padding: 32px;
-      margin-top: 32px;
+      padding: 24px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
 
-    .action-cta-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: var(--gradient-primary);
-    }
-
-    .action-cta-title {
+    .subpart-quote-title {
+      font-size: 1.1rem;
       color: var(--clinical-white);
-      font-size: 1.3rem;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
-    .action-cta-desc {
+    .subpart-quote-desc {
+      font-size: 0.82rem;
       color: rgba(255, 255, 255, 0.65);
-      font-size: 0.9rem;
-      margin-bottom: 24px;
-    }
-
-    .cta-buttons-flex {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
+      margin-bottom: 18px;
     }
   </style>
 </head>
@@ -322,13 +464,13 @@
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
-          <span>Back to All Parameters</span>
+          <span>Back to Calibration Scope</span>
         </a>
       </div>
     </nav>
   </header>
 
-  <!-- PARAMETER HEADER BANNER -->
+  <!-- DISCIPLINE HEADER BANNER -->
   <section class="param-header-banner" id="param-header-banner">
     <div style="max-width: 1280px; margin: 0 auto;">
       <div class="param-header-nav">
@@ -337,130 +479,49 @@
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
           </svg>
-          <span>All Calibration Scope</span>
+          <span>All Scope Disciplines</span>
         </a>
-        <span class="font-mono" id="param-code-badge" style="color: var(--teal-accent); font-weight: 600;">CODE // --</span>
+
+        <div class="disc-select-wrapper">
+          <span class="disc-select-label">Switch Discipline:</span>
+          <select id="disc-switcher-select" class="disc-switcher-select" aria-label="Select Calibration Discipline">
+            <!-- Loaded dynamically from parameters-data.js -->
+          </select>
+        </div>
       </div>
 
-      <span class="param-badge" id="discipline-title-badge">Discipline</span>
-      <h1 class="param-main-title" id="param-display-name">Loading Parameter Details...</h1>
-      <p class="param-main-summary" id="param-display-summary">
-        Fetching technical specifications and calibration capabilities...
+      <span class="param-badge" id="discipline-code-badge">Discipline Code</span>
+      <h1 class="param-main-title" id="discipline-display-name">Loading Discipline Details...</h1>
+      <p class="param-main-summary" id="discipline-display-summary">
+        Fetching technical specifications, measurement sub-ranges, and supported equipment...
       </p>
     </div>
   </section>
 
-  <!-- MAIN PARAMETER CONTENT GRID -->
+  <!-- LIVE SEARCH & SUB-PARAMETER TOOLBAR -->
+  <section class="detail-toolbar-section">
+    <div class="detail-toolbar-container">
+      <div class="detail-search-group">
+        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="detail-search-input" class="detail-search-input" placeholder="Search sub-parameters, test ranges, resolution, or equipment (e.g. Voltage, Current, Multimeter, 1000V, RTD)..." autocomplete="off">
+        <button id="detail-search-clear" class="detail-search-clear" aria-label="Clear Search" style="display: none;">&times;</button>
+      </div>
+
+      <div id="detail-search-counter" class="search-counter-badge" style="display: none;"></div>
+
+      <div class="subparam-pills-bar" id="subparam-pills-bar">
+        <!-- Loaded dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN SUB-PARAMETERS LIST CONTAINER -->
   <main class="param-detail-container">
-    <div class="param-detail-grid">
-
-      <!-- LEFT COLUMN: TECHNICAL SPECS & INSTRUMENTS -->
-      <div class="param-left-col">
-        
-        <!-- Ranges & Resolution Table -->
-        <div class="spec-card-box">
-          <h3 class="spec-title-head">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
-              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-            </svg>
-            Calibration Sub-Ranges &amp; Resolution
-          </h3>
-          <div class="ranges-table-wrapper">
-            <table class="ranges-table">
-              <thead>
-                <tr>
-                  <th>Parameter / Sub-part</th>
-                  <th>Operational Range</th>
-                  <th>Resolution</th>
-                </tr>
-              </thead>
-              <tbody id="param-ranges-tbody">
-                <!-- Loaded dynamically -->
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Supported Instruments -->
-        <div class="spec-card-box">
-          <h3 class="spec-title-head">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
-              <polyline points="9 11 12 14 22 4"></polyline>
-              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-            </svg>
-            Supported Equipment &amp; Instrument Types
-          </h3>
-          <div class="instruments-list-box">
-            <ul id="param-instruments-ul">
-              <!-- Loaded dynamically -->
-            </ul>
-          </div>
-        </div>
-
-        <!-- Traceability & Compliance Notice -->
-        <div class="spec-card-box" style="background: rgba(13, 148, 136, 0.04); border-color: rgba(13, 148, 136, 0.2);">
-          <h4 style="font-size: 0.95rem; color: var(--deep-ink-navy); margin-bottom: 8px;">
-            <svg viewBox="0 0 24 24" width="16" height="16" stroke="var(--teal-accent)" stroke-width="2" fill="none" style="margin-right: 6px;">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-            Traceability &amp; Quality Standard
-          </h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;">
-            All measurements are performed against master reference standards directly traceable to the <strong>National Physical Laboratory (NPL India)</strong> and <strong>NIST</strong> in accordance with ISO/IEC 17025 principles. Official Calibration Measurement Capability (CMC) budgets are available upon request.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- RIGHT COLUMN: REFERENCE GALLERY & CTA -->
-      <div class="param-right-col">
-        
-        <!-- Instrument Photo Gallery / Carousel -->
-        <div class="spec-card-box" style="padding: 24px;">
-          <h3 class="spec-title-head" style="margin-bottom: 16px;">
-            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <circle cx="8.5" cy="8.5" r="1.5"></circle>
-              <polyline points="21 15 16 10 5 21"></polyline>
-            </svg>
-            Equipment &amp; Calibration Gallery
-          </h3>
-
-          <div class="photo-gallery-wrapper" id="photo-gallery-box">
-            <div id="photo-slides-container">
-              <!-- Loaded dynamically -->
-            </div>
-            <div class="gallery-nav-bar" id="gallery-nav-bar" style="display: none;">
-              <button class="gallery-arrow-btn" id="gallery-prev-btn" aria-label="Previous Photo">
-                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="15 18 9 12 15 6"/></svg>
-              </button>
-              <div class="gallery-dots" id="gallery-dots-container"></div>
-              <button class="gallery-arrow-btn" id="gallery-next-btn" aria-label="Next Photo">
-                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 18 15 12 9 6"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Technical Quote Action Box -->
-        <div class="action-cta-box">
-          <h3 class="action-cta-title">Need Calibration for this Instrument?</h3>
-          <p class="action-cta-desc">Submit your specifications for a fast B2B quotation, certificate release, or on-site scheduling.</p>
-          <div class="cta-buttons-flex">
-            <a href="#" id="whatsapp-quote-link" target="_blank" class="btn btn-primary btn-rect btn-whatsapp">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 2.019 14.12 1 11.52 1c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.459 3.39 1.331 4.872L1.933 20.39l4.714-1.236zm10.742-5.717c-.296-.147-1.747-.852-2.012-.95-.264-.097-.456-.147-.648.147-.192.294-.744.95-.912 1.146-.169.196-.338.22-.634.072-.296-.147-1.25-.457-2.38-1.457-.88-.778-1.474-1.74-1.646-2.035-.172-.294-.018-.454.13-.601.133-.133.297-.344.446-.516.148-.172.197-.294.296-.49.099-.196.05-.367-.025-.515-.074-.147-.648-1.543-.888-2.13-.233-.564-.47-.488-.648-.497-.168-.008-.36-.009-.551-.009-.192 0-.505.072-.769.36-.264.288-1.01 1.01-1.01 2.46 0 1.45.1.86.326.196.226-.294 1.32-2.01 1.438-2.147.118-.137.228-.2.457-.053.23.147 1.478.75 1.63 1.25.152.5.152.93.076 1.226-.076.297-.456.95-.648 1.146l-.389.39-.026.024z"/>
-              </svg>
-              QUICK WHATSAPP ENQUIRY
-            </a>
-            <a href="index.html#contact" class="btn btn-outline btn-rect" style="color: var(--clinical-white); border-color: rgba(255, 255, 255, 0.4);">
-              GO TO CONTACT FORM
-            </a>
-          </div>
-        </div>
-
-      </div>
-
+    <div class="subparams-list-wrapper" id="subparams-list-wrapper">
+      <!-- Sub-parameters loaded dynamically -->
     </div>
   </main>
 
@@ -481,154 +542,240 @@
   <script src="parameters-data.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Parse URL parameters
-      const urlParams = new URLSearchParams(window.location.search);
-      const discId = urlParams.get('disc');
-      const paramId = urlParams.get('param');
-
       if (typeof NABL_SCOPE_DATA === 'undefined') return;
 
-      // Find target discipline and parameter
-      let targetDisc = null;
-      let targetParam = null;
+      const urlParams = new URLSearchParams(window.location.search);
+      let discId = urlParams.get('disc');
+      const targetParamId = urlParams.get('param');
 
-      if (discId && paramId) {
-        targetDisc = NABL_SCOPE_DATA.disciplines.find(d => d.id === discId);
-        if (targetDisc) {
-          targetParam = targetDisc.parameters.find(p => p.id === paramId);
-        }
+      const discSelect = document.getElementById('disc-switcher-select');
+      const searchInput = document.getElementById('detail-search-input');
+      const searchClear = document.getElementById('detail-search-clear');
+      const searchCounter = document.getElementById('detail-search-counter');
+      const pillsBar = document.getElementById('subparam-pills-bar');
+      const subparamsList = document.getElementById('subparams-list-wrapper');
+
+      let currentDisc = NABL_SCOPE_DATA.disciplines.find(d => d.id === discId) || NABL_SCOPE_DATA.disciplines[0];
+      let activeSubparamId = targetParamId || 'all';
+      let searchQuery = '';
+
+      // Populate Discipline Switcher Dropdown
+      let selectHtml = '';
+      NABL_SCOPE_DATA.disciplines.forEach(d => {
+        selectHtml += `<option value="${d.id}" ${d.id === currentDisc.id ? 'selected' : ''}>${d.title} (${d.code})</option>`;
+      });
+      discSelect.innerHTML = selectHtml;
+
+      discSelect.addEventListener('change', (e) => {
+        const newDiscId = e.target.value;
+        window.location.href = `parameter-detail.html?disc=${newDiscId}`;
+      });
+
+      function renderDisciplineHeader() {
+        document.title = `${currentDisc.title} Calibration Specifications | Teflon Instruments`;
+        document.getElementById('discipline-code-badge').textContent = `${currentDisc.code} // ${currentDisc.parameterCount} SUB-PARAMETERS`;
+        document.getElementById('discipline-display-name').textContent = `${currentDisc.title} Discipline Calibration Scope`;
+        document.getElementById('discipline-display-summary').textContent = currentDisc.description;
       }
 
-      // Fallback to first discipline & parameter if not found
-      if (!targetDisc || !targetParam) {
-        targetDisc = NABL_SCOPE_DATA.disciplines[0];
-        targetParam = targetDisc.parameters[0];
-      }
-
-      // Update Page Title
-      document.title = `${targetParam.name} Calibration Specification | Teflon Instruments`;
-
-      // Render Header Info
-      document.getElementById('param-code-badge').textContent = `${targetDisc.code} // ${targetParam.id.toUpperCase()}`;
-      document.getElementById('discipline-title-badge').textContent = `${targetDisc.title} Discipline`;
-      document.getElementById('param-display-name').textContent = targetParam.name;
-      document.getElementById('param-display-summary').textContent = targetParam.summary || targetDisc.description;
-
-      // Render Ranges Table
-      const tbody = document.getElementById('param-ranges-tbody');
-      let tbodyHtml = '';
-      if (targetParam.subRanges && targetParam.subRanges.length > 0) {
-        targetParam.subRanges.forEach(r => {
-          tbodyHtml += `
-            <tr>
-              <td><strong>${targetParam.name}</strong></td>
-              <td>${r.range}</td>
-              <td>${r.resolution || 'Standard'}</td>
-            </tr>
-          `;
+      function renderPillsBar() {
+        let html = `<button class="subparam-pill-btn ${activeSubparamId === 'all' ? 'active' : ''}" data-sub-id="all">All ${currentDisc.parameters.length} Sub-Parameters</button>`;
+        currentDisc.parameters.forEach(p => {
+          html += `<button class="subparam-pill-btn ${activeSubparamId === p.id ? 'active' : ''}" data-sub-id="${p.id}">${p.name}</button>`;
         });
-      } else {
-        tbodyHtml = `<tr><td colspan="3">Standard Calibration Operational Range</td></tr>`;
-      }
-      tbody.innerHTML = tbodyHtml;
+        pillsBar.innerHTML = html;
 
-      // Render Instruments List
-      const ul = document.getElementById('param-instruments-ul');
-      let ulHtml = '';
-      if (targetParam.instruments && targetParam.instruments.length > 0) {
-        targetParam.instruments.forEach(inst => {
-          ulHtml += `<li>${inst}</li>`;
+        pillsBar.querySelectorAll('.subparam-pill-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const subId = btn.getAttribute('data-sub-id');
+            activeSubparamId = subId;
+            searchQuery = '';
+            if (searchInput) searchInput.value = '';
+            if (searchClear) searchClear.style.display = 'none';
+            if (searchCounter) searchCounter.style.display = 'none';
+            renderPillsBar();
+            renderSubparameters();
+            if (subId !== 'all') {
+              const cardEl = document.getElementById(`card-${subId}`);
+              cardEl?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
         });
-      } else {
-        ulHtml = `<li>Standard Calibration Instruments</li>`;
-      }
-      ul.innerHTML = ulHtml;
-
-      // Render Gallery Slideshow
-      const slidesContainer = document.getElementById('photo-slides-container');
-      const navBar = document.getElementById('gallery-nav-bar');
-      const dotsContainer = document.getElementById('gallery-dots-container');
-
-      let slidesHtml = '';
-      let dotsHtml = '';
-      const images = targetParam.images || [];
-
-      if (images.length > 0) {
-        images.forEach((img, idx) => {
-          slidesHtml += `
-            <div class="photo-slide-item ${idx === 0 ? 'active' : ''}" data-slide="${idx}">
-              <img src="${img.src}" alt="${img.alt || img.title}" class="photo-slide-img" onerror="this.src='assets/images/facility_panoramic.png';">
-              <div class="photo-slide-caption">
-                <span class="photo-caption-title">${img.title}</span>
-                ${images.length > 1 ? `<span class="photo-caption-count">${idx + 1} of ${images.length} Equipment Photos</span>` : ''}
-              </div>
-            </div>
-          `;
-          dotsHtml += `<button class="gallery-dot ${idx === 0 ? 'active' : ''}" data-dot="${idx}" aria-label="Photo ${idx + 1}"></button>`;
-        });
-
-        slidesContainer.innerHTML = slidesHtml;
-        dotsContainer.innerHTML = dotsHtml;
-
-        if (images.length > 1) {
-          navBar.style.display = 'flex';
-          initGalleryControls(images.length);
-        }
-      } else {
-        slidesContainer.innerHTML = `
-          <div class="photo-slide-item active">
-            <img src="assets/images/facility_panoramic.png" alt="Metrology Lab" class="photo-slide-img">
-            <div class="photo-slide-caption">
-              <span class="photo-caption-title">Teflon Instruments Metrology Laboratory</span>
-            </div>
-          </div>
-        `;
       }
 
-      // Configure WhatsApp Quick Quote Link
-      const waBtn = document.getElementById('whatsapp-quote-link');
-      if (waBtn) {
-        const msg = `⚡ *CALIBRATION ENQUIRY* ⚡\n-------------------------\n📌 *Discipline:* ${targetDisc.title} (${targetDisc.code})\n🛠️ *Parameter:* ${targetParam.name}\n-------------------------\nHello Teflon Instruments, I would like to request a quote and turnaround details for calibrating ${targetParam.name}.`;
-        waBtn.href = `https://wa.me/919718933509?text=${encodeURIComponent(msg)}`;
-      }
-
-      // Slideshow logic
-      function initGalleryControls(total) {
-        let current = 0;
-        const slides = slidesContainer.querySelectorAll('.photo-slide-item');
-        const dots = dotsContainer.querySelectorAll('.gallery-dot');
-        const prevBtn = document.getElementById('gallery-prev-btn');
-        const nextBtn = document.getElementById('gallery-next-btn');
-
-        function goTo(idx) {
-          slides[current].classList.remove('active');
-          dots[current].classList.remove('active');
-          current = (idx + total) % total;
-          slides[current].classList.add('active');
-          dots[current].classList.add('active');
-        }
-
-        prevBtn?.addEventListener('click', () => goTo(current - 1));
-        nextBtn?.addEventListener('click', () => goTo(current + 1));
-        dots.forEach((dot, idx) => dot.addEventListener('click', () => goTo(idx)));
-
-        // Touch Swipe Support for Gallery
-        let touchStartX = 0;
-        let touchEndX = 0;
-        slidesContainer.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-        slidesContainer.addEventListener('touchend', (e) => {
-          touchEndX = e.changedTouches[0].screenX;
-          if (touchEndX < touchStartX - 40) {
-            goTo(current + 1);
-          } else if (touchEndX > touchStartX + 40) {
-            goTo(current - 1);
+      function renderSubparameters() {
+        let paramsToRender = currentDisc.parameters.filter(p => {
+          // Pill filter
+          if (activeSubparamId !== 'all' && p.id !== activeSubparamId) {
+            return false;
           }
-        }, { passive: true });
+          // Live search query filter
+          if (searchQuery) {
+            const nameMatch = p.name.toLowerCase().includes(searchQuery);
+            const summaryMatch = p.summary && p.summary.toLowerCase().includes(searchQuery);
+            const instMatch = p.instruments && p.instruments.some(i => i.toLowerCase().includes(searchQuery));
+            const rangeMatch = p.subRanges && p.subRanges.some(r => r.range.toLowerCase().includes(searchQuery) || r.resolution.toLowerCase().includes(searchQuery));
+            return nameMatch || summaryMatch || instMatch || rangeMatch;
+          }
+          return true;
+        });
 
-        // Autoplay every 4s
-        setInterval(() => goTo(current + 1), 4000);
+        // Search counter update
+        if (searchCounter) {
+          if (searchQuery) {
+            searchCounter.textContent = `Found ${paramsToRender.length} sub-parameters matching "${searchQuery}" in ${currentDisc.title}`;
+            searchCounter.style.display = 'inline-block';
+          } else {
+            searchCounter.style.display = 'none';
+          }
+        }
+
+        if (paramsToRender.length === 0) {
+          subparamsList.innerHTML = `
+            <div style="text-align: center; padding: 48px; background: var(--clinical-white); border: 1px dashed var(--border-grey); border-radius: var(--border-radius-card);">
+              <svg viewBox="0 0 24 24" width="40" height="40" stroke="var(--text-muted)" stroke-width="1.5" fill="none" style="margin-bottom: 12px;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <h4 style="font-size: 1.1rem; color: var(--deep-ink-navy); margin-bottom: 4px;">No sub-parameters found</h4>
+              <p style="font-size: 0.88rem; color: var(--text-muted);">Try searching for a different term or select "All Sub-Parameters".</p>
+            </div>
+          `;
+          return;
+        }
+
+        let html = '';
+        paramsToRender.forEach(p => {
+          // Ranges Table
+          let rangesHtml = '';
+          if (p.subRanges && p.subRanges.length > 0) {
+            rangesHtml = `
+              <div class="spec-card-box">
+                <h4 class="spec-title-head">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                  Calibration Sub-Ranges &amp; Resolution
+                </h4>
+                <div class="ranges-table-wrapper">
+                  <table class="ranges-table">
+                    <thead>
+                      <tr>
+                        <th>Operational Sub-Range</th>
+                        <th>Resolution / CMC Capability</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${p.subRanges.map(r => `
+                        <tr>
+                          <td><strong>${r.range}</strong></td>
+                          <td>${r.resolution}</td>
+                        </tr>
+                      `).join('')}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            `;
+          }
+
+          // Instruments List
+          let instHtml = '';
+          if (p.instruments && p.instruments.length > 0) {
+            instHtml = `
+              <div class="spec-card-box">
+                <h4 class="spec-title-head">
+                  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                  Supported Equipment &amp; Instrument Types
+                </h4>
+                <div class="instruments-list-box">
+                  <ul>
+                    ${p.instruments.map(inst => `<li>✔ ${inst}</li>`).join('')}
+                  </ul>
+                </div>
+              </div>
+            `;
+          }
+
+          // Image preview
+          const firstImg = (p.images && p.images.length > 0) ? p.images[0] : { src: 'assets/images/facility_panoramic.png', title: 'Teflon Instruments Metrology Laboratory' };
+
+          // WhatsApp Msg
+          const waMsg = `⚡ *CALIBRATION ENQUIRY* ⚡\n-------------------------\n📌 *Discipline:* ${currentDisc.title} (${currentDisc.code})\n🛠️ *Sub-Parameter:* ${p.name}\n-------------------------\nHello Teflon Instruments, I would like to request a quotation and turnaround schedule for calibrating ${p.name}.`;
+          const waUrl = `https://wa.me/919718933509?text=${encodeURIComponent(waMsg)}`;
+
+          html += `
+            <article class="subpart-card" id="card-${p.id}">
+              <div class="subpart-header">
+                <div class="subpart-title-group">
+                  <span class="subpart-id-tag">${currentDisc.code} // ${p.id.toUpperCase()}</span>
+                  <h3 class="subpart-title">${p.name}</h3>
+                </div>
+                <a href="${waUrl}" target="_blank" class="btn btn-primary btn-rect btn-whatsapp" style="font-size: 0.8rem; padding: 8px 14px;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.59 2.019 14.12 1 11.52 1c-5.44 0-9.866 4.372-9.87 9.802 0 1.714.459 3.39 1.331 4.872L1.933 20.39l4.714-1.236zm10.742-5.717c-.296-.147-1.747-.852-2.012-.95-.264-.097-.456-.147-.648.147-.192.294-.744.95-.912 1.146-.169.196-.338.22-.634.072-.296-.147-1.25-.457-2.38-1.457-.88-.778-1.474-1.74-1.646-2.035-.172-.294-.018-.454.13-.601.133-.133.297-.344.446-.516.148-.172.197-.294.296-.49.099-.196.05-.367-.025-.515-.074-.147-.648-1.543-.888-2.13-.233-.564-.47-.488-.648-.497-.168-.008-.36-.009-.551-.009-.192 0-.505.072-.769.36-.264.288-1.01 1.01-1.01 2.46 0 1.45.1.86.326.196.226-.294 1.32-2.01 1.438-2.147.118-.137.228-.2.457-.053.23.147 1.478.75 1.63 1.25.152.5.152.93.076 1.226-.076.297-.456.95-.648 1.146l-.389.39-.026.024z"/></svg>
+                  Quote for ${p.name}
+                </a>
+              </div>
+              
+              <div class="subpart-body">
+                <div class="subpart-left">
+                  <p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px;">${p.summary}</p>
+                  ${rangesHtml}
+                  ${instHtml}
+                </div>
+
+                <div class="subpart-right">
+                  <div class="subpart-photo-box">
+                    <img src="${firstImg.src}" alt="${firstImg.title || p.name}" class="subpart-img" onerror="this.src='assets/images/facility_panoramic.png';">
+                    <div class="subpart-img-caption">
+                      ✔ ${firstImg.title || (p.name + ' Reference Standard')}
+                    </div>
+                  </div>
+
+                  <div class="subpart-quote-box">
+                    <h4 class="subpart-quote-title">Need ${p.name} Calibration?</h4>
+                    <p class="subpart-quote-desc">Get NIST/NPL traceable certification with 24-48 hour turnaround.</p>
+                    <a href="${waUrl}" target="_blank" class="btn btn-primary btn-rect btn-block btn-whatsapp">
+                      REQUEST QUOTE VIA WHATSAPP
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          `;
+        });
+
+        subparamsList.innerHTML = html;
+      }
+
+      // Live search input handler
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value.trim().toLowerCase();
+          if (searchClear) searchClear.style.display = searchQuery.length > 0 ? 'flex' : 'none';
+          renderSubparameters();
+        });
+      }
+
+      if (searchClear) {
+        searchClear.addEventListener('click', () => {
+          searchQuery = '';
+          if (searchInput) searchInput.value = '';
+          searchClear.style.display = 'none';
+          if (searchCounter) searchCounter.style.display = 'none';
+          renderSubparameters();
+        });
+      }
+
+      // Initial execution
+      renderDisciplineHeader();
+      renderPillsBar();
+      renderSubparameters();
+
+      // Scroll to specific subparameter if URL param passed
+      if (targetParamId && targetParamId !== 'all') {
+        setTimeout(() => {
+          const cardEl = document.getElementById(`card-${targetParamId}`);
+          cardEl?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
       }
     });
   </script>

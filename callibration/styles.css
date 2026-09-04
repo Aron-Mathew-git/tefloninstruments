@@ -25,23 +25,23 @@
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-  /* Layout Spacing */
-  --grid-gap: 22px;
-  --section-padding: 72px 40px;
-  --border-radius-micro: 10px;
-  --border-radius-card: 18px;
+  /* Layout Spacing — Condensed, Crisp & Premium */
+  --grid-gap: 16px;
+  --section-padding: 44px 32px;
+  --border-radius-micro: 8px;
+  --border-radius-card: 14px;
 
-  /* Transitions */
-  --transition-fast: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Transitions — Ultra Smooth */
+  --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 
   /* Premium Gradients & Glow Effects */
   --gradient-primary: linear-gradient(135deg, #0284C7 0%, #0D9488 100%);
-  --gradient-hero: linear-gradient(160deg, rgba(2, 132, 199, 0.05) 0%, rgba(13, 148, 136, 0.04) 40%, var(--clinical-white) 80%);
+  --gradient-hero: linear-gradient(160deg, rgba(2, 132, 199, 0.06) 0%, rgba(13, 148, 136, 0.05) 40%, var(--clinical-white) 80%);
   --gradient-dark: linear-gradient(135deg, #0A0E1A 0%, #111827 50%, #0F172A 100%);
-  --gradient-card-hover: linear-gradient(135deg, rgba(2, 132, 199, 0.04) 0%, rgba(13, 148, 136, 0.03) 100%);
+  --gradient-card-hover: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(13, 148, 136, 0.04) 100%);
   --gradient-footer-cta: linear-gradient(135deg, #0284C7 0%, #6D28D9 50%, #0D9488 100%);
-  --premium-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(15, 23, 42, 0.03);
+  --premium-shadow: 0 8px 24px -6px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.03);
 }
 
 /* ==========================================================================
@@ -274,9 +274,9 @@ a:hover {
   align-items: center;
   background: var(--gradient-dark);
   color: var(--sterile-light-grey);
-  padding: 8px 48px;
+  padding: 6px 36px;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.73rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   position: relative;
   overflow: hidden;
@@ -302,7 +302,7 @@ a:hover {
 
 .top-bar-left, .top-bar-right {
   display: flex;
-  gap: 24px;
+  gap: 20px;
   align-items: center;
 }
 
@@ -314,7 +314,7 @@ a:hover {
 
 .tech-label {
   color: var(--teal-accent);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .status-indicator {
@@ -337,8 +337,8 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 48px;
-  height: 80px;
+  padding: 12px 36px;
+  height: 68px;
 }
 
 .nav-brand .logo-link {
@@ -1021,13 +1021,13 @@ a:hover {
 .hero-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  min-height: calc(100vh - 120px);
+  min-height: auto;
   position: relative;
   z-index: 1;
 }
 
 .hero-left {
-  padding: 80px 48px;
+  padding: 44px 36px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1040,9 +1040,9 @@ a:hover {
   gap: 8px;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-muted);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .meta-separator {
@@ -1053,16 +1053,18 @@ a:hover {
   color: var(--teal-accent);
   padding: 2px 8px;
   background: var(--teal-glow);
+  border: 1px solid rgba(13, 148, 136, 0.25);
   border-radius: 4px;
   font-size: 0.72rem;
+  font-weight: 800;
 }
 
 .hero-title {
-  font-size: 3.4rem;
+  font-size: 2.8rem;
   font-weight: 800;
   line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
+  letter-spacing: -0.025em;
+  margin-bottom: 16px;
 }
 
 .text-highlight {
@@ -1074,25 +1076,25 @@ a:hover {
 }
 
 .hero-description {
-  font-size: 1.05rem;
-  line-height: 1.75;
-  margin-bottom: 40px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
   max-width: 640px;
 }
 
 .hero-ctas {
   display: flex;
-  gap: 16px;
-  margin-bottom: 60px;
+  gap: 14px;
+  margin-bottom: 28px;
 }
 
 /* Hero Features / Key Trust Points */
 .hero-features {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 18px;
   border-top: 1px solid var(--border-dark);
-  padding-top: 40px;
+  padding-top: 24px;
 }
 
 .feature-item {
@@ -1317,7 +1319,7 @@ a:hover {
 }
 
 .section-header {
-  margin-bottom: 60px;
+  margin-bottom: 28px;
   max-width: 800px;
 }
 
@@ -1329,28 +1331,33 @@ a:hover {
 
 .section-tag {
   color: var(--teal-accent);
-  font-weight: 700;
+  font-weight: 800;
   display: inline-block;
-  margin-bottom: 12px;
-  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  letter-spacing: 0.1em;
   padding: 4px 12px;
   background: var(--teal-glow);
+  border: 1px solid rgba(13, 148, 136, 0.2);
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
 }
 
 .section-title {
-  font-size: 2.2rem;
-  margin-bottom: 16px;
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-bottom: 8px;
   background: linear-gradient(135deg, var(--deep-ink-navy) 0%, var(--electric-cyan) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  line-height: 1.25;
 }
 
 .section-subtitle {
-  font-size: 1.1rem;
+  font-size: 0.98rem;
   color: var(--text-muted);
+  line-height: 1.55;
 }
 
 /* ==========================================================================
@@ -2058,8 +2065,8 @@ a:hover {
 
 .workflow-strip {
   border-bottom: 1px solid var(--border-dark);
-  padding-bottom: 60px;
-  margin-bottom: 60px;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .workflow-layout {
@@ -2072,13 +2079,13 @@ a:hover {
   background-color: var(--clinical-white);
   border: 1px solid var(--border-grey);
   border-radius: var(--border-radius-card);
-  padding: 28px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
   transition: all var(--transition-smooth);
-  box-shadow: 0 4px 12px rgba(15, 23, 41, 0.02);
+  box-shadow: 0 2px 8px rgba(15, 23, 41, 0.02);
 }
 
 .workflow-card::before {
@@ -2087,7 +2094,7 @@ a:hover {
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
+  height: 3px;
   background: var(--gradient-primary);
   opacity: 0;
   transition: opacity var(--transition-fast);
@@ -2098,26 +2105,26 @@ a:hover {
 }
 
 .workflow-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   border-color: rgba(14, 111, 216, 0.2);
-  box-shadow: 0 20px 40px rgba(15, 23, 41, 0.08), 0 4px 12px rgba(14, 111, 216, 0.06);
+  box-shadow: 0 14px 32px rgba(15, 23, 41, 0.06), 0 4px 12px rgba(14, 111, 216, 0.05);
   background: var(--gradient-card-hover);
 }
 
 .workflow-step-num {
   font-size: 0.65rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--teal-accent);
   background: var(--teal-glow);
   padding: 3px 8px;
   border-radius: 4px;
   width: fit-content;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .workflow-icon-box {
   color: var(--electric-cyan);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   display: inline-flex;
   padding: 8px;
   background: rgba(14, 111, 216, 0.05);
@@ -2133,14 +2140,15 @@ a:hover {
 }
 
 .workflow-card-title {
-  font-size: 1.15rem;
-  margin-bottom: 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
   color: var(--deep-ink-navy);
 }
 
 .workflow-card-desc {
   font-size: 0.8rem;
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--text-muted);
 }
 
@@ -2813,23 +2821,19 @@ a:hover {
     text-align: center;
   }
 
-  /* Discipline Selector Grid on Mobile: Horizontal Swipe Container */
+  /* Discipline Selector Grid on Mobile: Clean 2-Column High-Visibility Touch Grid */
   .discipline-selector-grid {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     margin-bottom: 24px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--teal-accent) transparent;
   }
 
   .discipline-card-btn {
-    flex: 0 0 135px;
-    scroll-snap-align: start;
-    padding: 14px 10px;
+    width: 100%;
+    min-height: 72px;
+    padding: 12px 8px;
+    border-radius: var(--border-radius-micro);
   }
 
   /* Responsive Data Tables Container */
@@ -3005,7 +3009,7 @@ a:hover {
 }
 
 /* ==========================================================================
-   NABL 129 SCOPE EXPLAINER & PARAMETER EXPLORER COMPONENT
+   PARAMETER EXPLORER COMPONENT
    ========================================================================== */
 .section-parameters.highlight-pulse {
   animation: sectionPulse 1.4s cubic-bezier(0.16, 1, 0.3, 1);
