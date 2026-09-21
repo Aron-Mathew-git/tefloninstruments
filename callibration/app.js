@@ -60,6 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
   openQuoteBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      const service = btn.getAttribute('data-service');
+      if (service) {
+        const serviceSelect = document.getElementById('eq-service');
+        if (serviceSelect) {
+          serviceSelect.value = service;
+        }
+      }
       openSidebar();
     });
   });
@@ -262,6 +269,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Workflow cards
     document.querySelectorAll('.workflow-card').forEach((el, i) => {
       el.classList.add('fade-in-up', `stagger-${i + 1}`);
+    });
+
+    // Off-site alternative card
+    document.querySelectorAll('.offsite-alternative-card').forEach(el => {
+      el.classList.add('fade-in-up');
     });
 
     // Insight cards
