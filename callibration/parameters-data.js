@@ -1,7 +1,7 @@
 /**
  * Teflon Instruments — Calibration Scope & Parameter Explorer Data
  *
- * Comprehensive breakdown of all 14 calibration disciplines.
+ * Comprehensive breakdown of all 13 calibration disciplines.
  * Each subpart/subcategory from the scope catalog is an explicit parameter card
  * featuring exact technical ranges, supported instruments, and verified reference images.
  *
@@ -302,79 +302,83 @@ const NABL_SCOPE_DATA = {
     },
 
     /* ──────────────────────────────────────────────
-       2. TEMPERATURE
+       2. THERMAL (Temperature, Specific Heat & Humidity)
     ────────────────────────────────────────────── */
     {
-      id: "temperature",
-      code: "TEMP-02",
-      title: "Temperature",
-      description: "Temperature sensors, RTDs, thermocouples, dry blocks, environmental chambers, ovens, and furnaces.",
+      id: "thermal",
+      code: "THERM-02",
+      title: "Thermal",
+      description: "Temperature sensors, RTDs, SSPRT, thermocouples, transmitters, dry block furnaces, thermal mapping, humidity sensors, and climate test chambers.",
       icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"></path></svg>`,
-      parameterCount: 3,
+      parameterCount: 2,
       parameters: [
         {
-          id: "temp-general",
+          id: "thermal-temperature",
           name: "Temperature",
-          summary: "General temperature indicator, glass stem thermometer, and chamber temperature profiling.",
+          summary: "Comprehensive contact and non-contact temperature calibration from cryogenic -196 °C up to 1600 °C, covering SSPRT, PRT, RTD, industrial furnaces, and thermal mapping.",
           subRanges: [
-            { range: "-30 °C to 650 °C (Dry Block Well)", resolution: "0.01 °C" },
-            { range: "650 °C to 1200 °C (High-Temp Furnace)", resolution: "0.1 °C" }
+            { range: "-196 °C to 1600 °C" }
           ],
           instruments: [
-            "Thermometer",
-            "Dry Block",
-            "Oven",
-            "Furnace",
-            "Incubator",
-            "Freezer",
-            "Temperature Chamber"
+            "SSPRT (Standard Platinum Resistance Thermometer)",
+            "PRT (Platinum Resistance Thermometer)",
+            "RTD (Pt100, Pt1000)",
+            "Thermostat",
+            "Temperature Transmitter (Rosemount / Tempsens / Omega)",
+            "Dry Block Furnace",
+            "Muffle Furnace",
+            "Industrial Oven",
+            "Water Bath & Oil Bath",
+            "Autoclave",
+            "Cement Autoclave",
+            "Thermal Mapping / Multi-point Profiling",
+            "Data Logger",
+            "Digital Thermometer",
+            "Glass Stem Thermometer",
+            "Non-Contact Thermometer",
+            "Pyrometer (Optical & Infrared)",
+            "Infrared Thermometer",
+            "Thermal Image Camera",
+            "Laser Temperature Gun",
+            "Curing Tank",
+            "Deep Freezer",
+            "Laboratory Refrigerator"
           ],
           images: [
             {
               src: "assets/images/dry_block.png",
-              title: "Dry Block Temperature Calibrator",
-              alt: "Fluke dry block calibrator with digital temperature controller"
-            }
-          ]
-        },
-        {
-          id: "temp-rtd",
-          name: "RTD",
-          summary: "Contact RTD temperature probe calibration (Pt100, Pt1000, Ni120) across cryogenic to elevated temperatures.",
-          subRanges: [
-            { range: "-80 °C to 650 °C", resolution: "0.01 °C" }
-          ],
-          instruments: [
-            "RTD",
-            "Thermometer",
-            "Dry Block"
-          ],
-          images: [
-            {
-              src: "assets/images/dry_block.png",
-              title: "Master RTD Probe Calibration Well",
-              alt: "Fluke 9172 dry block calibrator with master Pt100 RTD probe"
-            }
-          ]
-        },
-        {
-          id: "temp-thermocouple",
-          name: "Thermocouple",
-          summary: "Calibration for noble and base metal thermocouples (Type J, K, T, E, R, S, N, B).",
-          subRanges: [
-            { range: "-30 °C to 1200 °C", resolution: "0.1 °C" }
-          ],
-          instruments: [
-            "Thermocouple",
-            "Thermometer",
-            "Dry Block",
-            "Furnace"
-          ],
-          images: [
+              title: "Tempsens / Fluke Master Dry Block Calibration Furnace & PRT Reference",
+              alt: "Dry block furnace and master temperature calibration well"
+            },
             {
               src: "assets/images/infrared_pyrometer.png",
-              title: "High-Temperature Thermocouple & IR Pyrometer Reference",
-              alt: "Infrared pyrometer and thermocouple calibration at elevated temperatures"
+              title: "Infrared Pyrometer & Non-Contact Thermal Camera Reference",
+              alt: "High temperature non-contact pyrometer and infrared thermal imaging camera"
+            }
+          ]
+        },
+        {
+          id: "thermal-humidity",
+          name: "Specific Heat and Humidity",
+          summary: "Precision relative humidity calibration, environmental test chamber profiling, and thermal shock chamber mapping across 5% to 100% RH.",
+          subRanges: [
+            { range: "5% to 100% RH" }
+          ],
+          instruments: [
+            "Humidity Sensor",
+            "Digital Thermohygrometer",
+            "Environmental Data Logger",
+            "Humidity Chamber",
+            "Climate Chamber",
+            "Thermal Shock Chamber",
+            "Salt Spray Chamber",
+            "Mapping of Humidity Chamber / Multi-point Profiling"
+          ],
+          images: [
+            {
+              src: "assets/images/humidity_chamber.png",
+              title: "Environmental Humidity & Climate Test Chamber",
+              alt: "Precision humidity test chamber for sensor calibration and environmental mapping"
             }
           ]
         }
@@ -464,66 +468,11 @@ const NABL_SCOPE_DATA = {
     },
 
     /* ──────────────────────────────────────────────
-       4. HUMIDITY
-    ────────────────────────────────────────────── */
-    {
-      id: "humidity",
-      code: "HUM-04",
-      title: "Humidity",
-      description: "Relative humidity, dew point meters, hygrometers, thermo-hygrometers, RH loggers, and humidity chambers.",
-      icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>`,
-      parameterCount: 2,
-      parameters: [
-        {
-          id: "hum-rh",
-          name: "Relative Humidity",
-          summary: "Relative humidity (%RH) testing for digital thermo-hygrometers, cleanroom sensors, and data loggers.",
-          subRanges: [
-            { range: "10 %RH to 95 %RH (at 15 °C to 50 °C)", resolution: "0.1 %RH" }
-          ],
-          instruments: [
-            "Hygrometer",
-            "Thermo-Hygrometer",
-            "Humidity Chamber",
-            "RH Logger"
-          ],
-          images: [
-            {
-              src: "assets/images/humidity_chamber.png",
-              title: "Environmental Relative Humidity Chamber",
-              alt: "Humidity calibration chamber with thermo-hygrometer probe"
-            }
-          ]
-        },
-        {
-          id: "hum-dewpoint",
-          name: "Dew Point",
-          summary: "Sub-zero and ambient dew point temperature calibration for chilled mirror and capacitive meters.",
-          subRanges: [
-            { range: "-20 °C to +30 °C Dew Point", resolution: "0.1 °C dp" }
-          ],
-          instruments: [
-            "Thermo-Hygrometer",
-            "RH Logger",
-            "Hygrometer"
-          ],
-          images: [
-            {
-              src: "assets/images/humidity_chamber.png",
-              title: "Dew Point Meter Reference Generator",
-              alt: "Humidity chamber configured for dew point probe verification"
-            }
-          ]
-        }
-      ]
-    },
-
-    /* ──────────────────────────────────────────────
-       5. FORCE & TORQUE
+       4. FORCE & TORQUE
     ────────────────────────────────────────────── */
     {
       id: "force-torque",
-      code: "FT-05",
+      code: "FT-04",
       title: "Force & Torque",
       description: "Force, compression, tension, and torque measurement using UTM, CTM, load cells, force gauges, torque wrenches, and torque testers.",
       icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v8H2z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>`,
@@ -629,11 +578,11 @@ const NABL_SCOPE_DATA = {
     },
 
     /* ──────────────────────────────────────────────
-       6. DIMENSIONAL
+       5. DIMENSIONAL
     ────────────────────────────────────────────── */
     {
       id: "dimensional",
-      code: "DIM-06",
+      code: "DIM-05",
       title: "Dimensional",
       description: "Length, thickness, height, depth, and diameter metrology using calipers, micrometers, dial gauges, height gauges, bore gauges, and depth gauges.",
       icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="2"></rect><line x1="6" y1="7" x2="6" y2="11"></line><line x1="10" y1="7" x2="10" y2="13"></line><line x1="14" y1="7" x2="14" y2="11"></line><line x1="18" y1="7" x2="18" y2="13"></line></svg>`,
@@ -754,11 +703,11 @@ const NABL_SCOPE_DATA = {
     },
 
     /* ──────────────────────────────────────────────
-       7. MASS
+       6. MASS
     ────────────────────────────────────────────── */
     {
       id: "mass",
-      code: "MASS-07",
+      code: "MASS-06",
       title: "Mass",
       description: "Weight calibration for micro, analytical, precision balances, platform scales, and standard reference weights.",
       icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 9l9-6 9 6M3 9l4 10h10l4-10"></path></svg>`,
@@ -790,11 +739,11 @@ const NABL_SCOPE_DATA = {
     },
 
     /* ──────────────────────────────────────────────
-       8. FLOW
+       7. FLOW
     ────────────────────────────────────────────── */
     {
       id: "flow",
-      code: "FLOW-08",
+      code: "FLOW-07",
       title: "Flow",
       description: "Flow rate calibration for water, air, gas, and liquid flow meters, rotameters, and ultrasonic meters.",
       icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`,
@@ -882,11 +831,11 @@ const NABL_SCOPE_DATA = {
     },
 
     /* ──────────────────────────────────────────────
-       9. SPEED & TIME
+       8. SPEED & TIME
     ────────────────────────────────────────────── */
     {
       id: "speed-time",
-      code: "ST-09",
+      code: "ST-08",
       title: "Speed & Time",
       description: "RPM, rotational speed, optical tachometers, stroboscopes, digital stopwatches, and timers.",
       icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>`,
@@ -953,11 +902,11 @@ const NABL_SCOPE_DATA = {
     },
 
     /* ──────────────────────────────────────────────
-       10. SOUND & VIBRATION
+       9. SOUND & VIBRATION
     ────────────────────────────────────────────── */
     {
       id: "sound-vibration",
-      code: "SV-10",
+      code: "SV-09",
       title: "Sound & Vibration",
       description: "Sound level meters, decibel meters, acoustic calibrators, vibration meters, and accelerometers.",
       icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 10v4M6 6v12M10 3v18M14 8v8M18 5v14M22 10v4"></path></svg>`,
@@ -1004,11 +953,11 @@ const NABL_SCOPE_DATA = {
     },
 
     /* ──────────────────────────────────────────────
-       11. LIGHT
+       10. LIGHT
     ────────────────────────────────────────────── */
     {
       id: "light",
-      code: "LGT-11",
+      code: "LGT-10",
       title: "Light",
       description: "Lux, illuminance, brightness, photometric sensors, and lux meter calibration.",
       icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`,
@@ -1054,11 +1003,11 @@ const NABL_SCOPE_DATA = {
     },
 
     /* ──────────────────────────────────────────────
-       12. LABORATORY
+       11. LABORATORY
     ────────────────────────────────────────────── */
     {
       id: "laboratory",
-      code: "LAB-12",
+      code: "LAB-11",
       title: "Laboratory",
       description: "pH, electrical conductivity, Total Dissolved Solids (TDS), and Dissolved Oxygen (DO) analytical instruments.",
       icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55A2 2 0 0 0 6.51 23.5h10.98a2 2 0 0 0 1.79-2.95l-5.07-10.127A2 2 0 0 1 14 9.527V2"></path><path d="M8.5 2h7"></path><path d="M7 16h10"></path></svg>`,
@@ -1140,11 +1089,11 @@ const NABL_SCOPE_DATA = {
     },
 
     /* ──────────────────────────────────────────────
-       13. PROCESS INSTRUMENTS
+       12. PROCESS INSTRUMENTS
     ────────────────────────────────────────────── */
     {
       id: "process-instruments",
-      code: "PROC-13",
+      code: "PROC-12",
       title: "Process Instruments",
       description: "Field and loop instrumentation calibration for pressure, temperature, flow, and level.",
       icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>`,
@@ -1234,11 +1183,11 @@ const NABL_SCOPE_DATA = {
     },
 
     /* ──────────────────────────────────────────────
-       14. MECHANICAL TESTING
+       13. MECHANICAL TESTING
     ────────────────────────────────────────────── */
     {
       id: "mechanical-testing",
-      code: "MT-14",
+      code: "MT-13",
       title: "Mechanical Testing",
       description: "Material testing, tensile, compression, bending, hardness (Rockwell, Brinell, Vickers, Shore), impact testing, force gauges, load cells, and spring testers.",
       icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>`,

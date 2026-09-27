@@ -312,6 +312,41 @@ a:hover {
   gap: 6px;
 }
 
+.top-bar-phone-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.top-bar-phones {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.top-phone-link {
+  color: var(--sterile-light-grey);
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  transition: color var(--transition-fast);
+}
+
+.top-phone-link:hover {
+  color: var(--teal-accent);
+}
+
+.phone-sep {
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 300;
+  user-select: none;
+  margin: 0 1px;
+}
+
 .tech-label {
   color: var(--teal-accent);
   font-weight: 700;
@@ -673,6 +708,67 @@ a:hover {
 
 .drawer-contact-item:hover {
   color: var(--teal-accent);
+}
+
+.drawer-contact-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--teal-accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.drawer-contact-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.drawer-phone-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--border-radius-micro);
+  color: var(--sterile-light-grey);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  min-height: 44px;
+}
+
+.drawer-phone-link svg {
+  color: var(--teal-accent);
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.drawer-phone-link .phone-num {
+  white-space: nowrap;
+  flex: 1;
+}
+
+.drawer-phone-tag {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--teal-glow);
+  color: var(--teal-accent);
+  border: 1px solid rgba(13, 148, 136, 0.3);
+  flex-shrink: 0;
+}
+
+.drawer-phone-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--teal-accent);
+  color: #fff;
 }
 
 /* ==========================================================================
@@ -1832,6 +1928,61 @@ a:hover {
   border-radius: 0 var(--border-radius-micro) var(--border-radius-micro) 0;
 }
 
+/* Company Mission Banner / Quote Card */
+.company-mission-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(2, 132, 199, 0.05) 0%, rgba(13, 148, 136, 0.07) 100%);
+  border: 1px solid rgba(13, 148, 136, 0.25);
+  border-left: 4px solid var(--teal-accent);
+  border-radius: var(--border-radius-card);
+  padding: 24px 32px 24px 64px;
+  margin: 28px 0 32px 0;
+  box-shadow: 0 4px 16px rgba(13, 148, 136, 0.06);
+  overflow: hidden;
+}
+
+.mission-quote-mark {
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  font-family: Georgia, serif;
+  font-size: 3.8rem;
+  line-height: 1;
+  color: var(--teal-accent);
+  opacity: 0.35;
+  user-select: none;
+  pointer-events: none;
+}
+
+.mission-quote-text {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--deep-ink-navy);
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.mission-quote-brand {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--teal-accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.footer-motto-quote {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.72);
+  border-left: 2px solid var(--teal-accent);
+  padding-left: 10px;
+  margin-top: 14px;
+  line-height: 1.5;
+}
+
 /* Why Choose Us Feature Grid (Text-Only Block) */
 .why-us-feature-grid {
   display: grid;
@@ -2438,6 +2589,72 @@ a:hover {
   color: var(--teal-accent);
 }
 
+/* Contact Detail Phone Badges */
+.contact-detail-phone-item {
+  align-items: flex-start;
+}
+
+.contact-detail-icon-box {
+  color: var(--electric-cyan);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.contact-detail-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.contact-phones-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.contact-phone-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 14px;
+  background-color: var(--sterile-light-grey);
+  border: 1px solid var(--border-grey);
+  border-radius: var(--border-radius-micro);
+  color: var(--deep-ink-navy);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  max-width: 290px;
+  text-decoration: none !important;
+}
+
+.contact-phone-badge:hover {
+  border-color: var(--electric-cyan);
+  background-color: #fff;
+  color: var(--electric-cyan);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.1);
+}
+
+.phone-type-tag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--teal-glow);
+  color: var(--teal-accent);
+  border: 1px solid rgba(13, 148, 136, 0.25);
+  flex-shrink: 0;
+}
+
 .contact-action-buttons {
   display: flex;
   gap: 16px;
@@ -2547,6 +2764,53 @@ a:hover {
   padding: 2px 8px;
   background: rgba(255, 255, 255, 0.15);
   border-radius: 4px;
+}
+
+/* Footer Phones CTA Wrap */
+.footer-phones-wrap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.footer-phone-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--clinical-white);
+  padding: 8px 16px;
+  border-radius: var(--border-radius-micro);
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  text-decoration: none !important;
+}
+
+.footer-phone-btn svg {
+  color: var(--teal-accent);
+  flex-shrink: 0;
+}
+
+.footer-phone-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: #fff;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.footer-phone-sep {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.2rem;
+  font-weight: 300;
+  user-select: none;
 }
 
 /* Sitemap Columns */
@@ -3067,6 +3331,46 @@ a:hover {
     font-size: 1.25rem;
   }
 
+  .top-bar-phones {
+    gap: 4px;
+  }
+
+  .top-phone-link {
+    font-size: 0.7rem;
+  }
+
+  .company-mission-card {
+    padding: 18px 16px 18px 46px;
+    margin: 20px 0 24px 0;
+  }
+
+  .mission-quote-mark {
+    font-size: 2.8rem;
+    left: 12px;
+    top: -4px;
+  }
+
+  .mission-quote-text {
+    font-size: 0.98rem;
+    line-height: 1.4;
+  }
+
+  .contact-phone-badge {
+    max-width: 100%;
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .footer-phones-wrap {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .footer-phone-btn {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     padding: 32px 16px;
@@ -3091,6 +3395,35 @@ a:hover {
 }
 
 @media (max-width: 480px) {
+  .top-bar-phones {
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
+  }
+
+  .top-bar-phone-item .phone-sep {
+    display: none;
+  }
+
+  .footer-phones-wrap {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .footer-phone-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+  }
+
+  .footer-phone-sep {
+    display: none;
+  }
+
+  .mission-quote-text {
+    font-size: 0.92rem;
+  }
+
   .logo-main {
     font-size: 0.95rem;
   }

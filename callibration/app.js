@@ -870,7 +870,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let html = '';
       parametersToRender.forEach(param => {
         const instrumentsPreview = param.instruments ? param.instruments.slice(0, 3).join(' • ') : 'Standard Reference';
-        const subrangePills = param.subRanges ? param.subRanges.map(sr => `<span class="subrange-pill" title="Resolution: ${sr.resolution}">${sr.range}</span>`).join('') : '';
+        const subrangePills = param.subRanges ? param.subRanges.map(sr => `<span class="subrange-pill" ${sr.resolution ? `title="Resolution: ${sr.resolution}"` : ''}>${sr.range}</span>`).join('') : '';
 
         html += `
           <div class="explorer-param-card" data-param-id="${param.id}" data-disc-id="${param.disciplineId}" style="cursor: pointer;">
@@ -927,21 +927,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let rangesHtml = '';
       if (paramObj.subRanges && paramObj.subRanges.length > 0) {
+        const hasResolution = paramObj.subRanges.some(sr => sr.resolution && sr.resolution.trim() !== '');
         rangesHtml = `
-          <h4 class="modal-section-title">Measurement Ranges & Resolution</h4>
+          <h4 class="modal-section-title">${hasResolution ? 'Measurement Ranges &amp; Resolution' : 'Measurement Ranges &amp; Scope'}</h4>
           <div class="ranges-table-wrapper">
             <table class="modal-ranges-table">
               <thead>
                 <tr>
                   <th>Calibration Range</th>
-                  <th>Resolution / Capability</th>
+                  ${hasResolution ? '<th>Resolution / Capability</th>' : ''}
                 </tr>
               </thead>
               <tbody>
                 ${paramObj.subRanges.map(sr => `
                   <tr>
                     <td><strong>${sr.range}</strong></td>
-                    <td>${sr.resolution}</td>
+                    ${hasResolution ? `<td>${sr.resolution || 'As per Scope'}</td>` : ''}
                   </tr>
                 `).join('')}
               </tbody>

@@ -436,7 +436,7 @@
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
-          <span>1153, Peringattu Rd, Chembumukku, Edappally, Kakkanad, Kochi, Kerala 682021</span>
+          <span>No. 1153, Peringattu, Chembumukku, Kakkanad, Kochi - 682021</span>
         </div>
       </div>
       <div class="top-bar-right">
@@ -444,9 +444,15 @@
           <span class="status-indicator"></span>
           <span class="tech-label font-mono">LAB ACTIVE</span>
         </div>
-        <div class="top-bar-item">
-          <span class="font-mono" style="color: var(--teal-accent); font-weight: 600;">PH:</span>
-          <span><a href="tel:+919718933509" style="color: inherit; text-decoration: none;">+91 97189 33509</a> &nbsp;|&nbsp; <a href="tel:+917012221284" style="color: inherit; text-decoration: none;">+91 7012221284</a></span>
+        <div class="top-bar-item top-bar-phone-item">
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--teal-accent); flex-shrink: 0;">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <div class="top-bar-phones">
+            <a href="tel:+919718933509" class="top-phone-link">+91 97189 33509</a>
+            <span class="phone-sep">|</span>
+            <a href="tel:+917012221284" class="top-phone-link">+91 7012221284</a>
+          </div>
         </div>
       </div>
     </div>
@@ -547,6 +553,11 @@
       const urlParams = new URLSearchParams(window.location.search);
       let discId = urlParams.get('disc');
       const targetParamId = urlParams.get('param');
+
+      // Alias handling for legacy temperature and humidity query params
+      if (discId === 'temperature' || discId === 'humidity') {
+        discId = 'thermal';
+      }
 
       const discSelect = document.getElementById('disc-switcher-select');
       const searchInput = document.getElementById('detail-search-input');
@@ -649,25 +660,26 @@
           // Ranges Table
           let rangesHtml = '';
           if (p.subRanges && p.subRanges.length > 0) {
+            const hasResolution = p.subRanges.some(r => r.resolution && r.resolution.trim() !== '');
             rangesHtml = `
               <div class="spec-card-box">
                 <h4 class="spec-title-head">
                   <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                  Calibration Sub-Ranges &amp; Resolution
+                  ${hasResolution ? 'Calibration Sub-Ranges &amp; Resolution' : 'Calibration Measurement Scope &amp; Ranges'}
                 </h4>
                 <div class="ranges-table-wrapper">
                   <table class="ranges-table">
                     <thead>
                       <tr>
-                        <th>Operational Sub-Range</th>
-                        <th>Resolution / CMC Capability</th>
+                        <th>Operational Calibration Range</th>
+                        ${hasResolution ? '<th>Resolution / CMC Capability</th>' : ''}
                       </tr>
                     </thead>
                     <tbody>
                       ${p.subRanges.map(r => `
                         <tr>
                           <td><strong>${r.range}</strong></td>
-                          <td>${r.resolution}</td>
+                          ${hasResolution ? `<td>${r.resolution || 'As per Scope'}</td>` : ''}
                         </tr>
                       `).join('')}
                     </tbody>
